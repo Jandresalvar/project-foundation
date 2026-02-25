@@ -1,6 +1,7 @@
 import { ArrowRight, MessageCircle, BarChart3, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/lib/motion";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => (
   <section className="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
@@ -31,8 +32,8 @@ const HeroSection = () => (
 
           <FadeIn delay={0.3}>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="gap-2">
-                Empezar ahora <ArrowRight className="w-4 h-4" />
+              <Button asChild size="lg" className="gap-2">
+                <Link to="/consultoria">Empezar ahora <ArrowRight className="w-4 h-4" /></Link>
               </Button>
               <Button size="lg" variant="outline" className="gap-2">
                 Ver servicios

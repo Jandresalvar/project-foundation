@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const NAV_LINKS = [
   { label: "Servicios", href: "#servicios" },
@@ -35,8 +36,8 @@ const Navbar = () => {
 
         {/* Desktop CTA */}
         <div className="hidden md:block">
-          <Button size="sm" className="gap-2">
-            Agendar Consultoría <ArrowRight className="w-4 h-4" />
+          <Button asChild size="sm" className="gap-2">
+            <Link to="/consultoria">Agendar Consultoría <ArrowRight className="w-4 h-4" /></Link>
           </Button>
         </div>
 
@@ -63,8 +64,8 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <Button size="sm" className="w-full gap-2">
-            Agendar Consultoría <ArrowRight className="w-4 h-4" />
+          <Button asChild size="sm" className="w-full gap-2">
+            <Link to="/consultoria">Agendar Consultoría <ArrowRight className="w-4 h-4" /></Link>
           </Button>
         </div>
       )}
