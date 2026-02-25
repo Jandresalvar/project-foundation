@@ -1,16 +1,29 @@
-const Index = () => {
-  return (
-    <main className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center space-y-3">
-        <h1 className="text-4xl font-semibold tracking-tight text-foreground">
-          Ready to build
-        </h1>
-        <p className="text-lg text-muted-foreground">
-          Production-ready project. Start adding your features.
-        </p>
-      </div>
-    </main>
-  );
-};
+import { lazy, Suspense } from "react";
+import Navbar from "@/components/landing/Navbar";
+
+const HeroSection = lazy(() => import("@/components/landing/HeroSection"));
+const PowerTrioSection = lazy(() => import("@/components/landing/PowerTrioSection"));
+const GrowthEcosystemSection = lazy(() => import("@/components/landing/GrowthEcosystemSection"));
+const FullFunnelComparison = lazy(() => import("@/components/landing/FullFunnelComparison"));
+const ProcessSection = lazy(() => import("@/components/landing/ProcessSection"));
+const FinalCTA = lazy(() => import("@/components/landing/FinalCTA"));
+const Footer = lazy(() => import("@/components/landing/Footer"));
+
+const SectionFallback = () => (
+  <div className="h-40 rounded-2xl bg-muted animate-pulse mx-6 lg:mx-16" />
+);
+
+const Index = () => (
+  <main className="min-h-screen bg-background">
+    <Navbar />
+    <Suspense fallback={<SectionFallback />}><HeroSection /></Suspense>
+    <Suspense fallback={<SectionFallback />}><PowerTrioSection /></Suspense>
+    <Suspense fallback={<SectionFallback />}><GrowthEcosystemSection /></Suspense>
+    <Suspense fallback={<SectionFallback />}><FullFunnelComparison /></Suspense>
+    <Suspense fallback={<SectionFallback />}><ProcessSection /></Suspense>
+    <Suspense fallback={<SectionFallback />}><FinalCTA /></Suspense>
+    <Suspense fallback={<SectionFallback />}><Footer /></Suspense>
+  </main>
+);
 
 export default Index;
