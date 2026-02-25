@@ -35,8 +35,8 @@ const HeroSection = () => (
               <Button asChild size="lg" className="gap-2">
                 <Link to="/consultoria">Empezar ahora <ArrowRight className="w-4 h-4" /></Link>
               </Button>
-              <Button size="lg" variant="outline" className="gap-2">
-                Ver servicios
+              <Button size="lg" variant="outline" className="gap-2" asChild>
+                <a href="#servicios">Ver servicios</a>
               </Button>
             </div>
           </FadeIn>
