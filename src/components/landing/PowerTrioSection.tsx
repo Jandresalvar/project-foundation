@@ -34,7 +34,8 @@ const SERVICES: ServiceCard[] = [
 ];
 
 const PowerTrioSection = () => (
-  <section id="servicios" className="py-24 md:py-32">
+  <section id="servicios" className="relative py-24 md:py-32 bg-surface-neutral">
+    <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-accent/8 to-transparent" />
     <div className="max-w-7xl mx-auto px-6 lg:px-16">
       <FadeIn className="text-center max-w-2xl mx-auto mb-16">
         <p className="text-sm font-semibold text-accent tracking-wide uppercase mb-3">
@@ -51,8 +52,8 @@ const PowerTrioSection = () => (
       <StaggerContainer className="grid md:grid-cols-3 gap-6 lg:gap-8" staggerDelay={0.15}>
         {SERVICES.map((s) => (
           <StaggerItem key={s.title}>
-            <article className="group h-full rounded-2xl border border-border bg-card p-7 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-              <div className="mb-5 flex items-center justify-center w-12 h-12 rounded-xl bg-accent/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-accent-foreground">
+            <article className="group h-full rounded-2xl border border-border/90 bg-card/95 p-7 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 hover:border-accent/25">
+              <div className="mb-5 flex items-center justify-center w-12 h-12 rounded-xl bg-accent/12 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-accent-foreground">
                 {s.icon}
               </div>
               <h3 className="font-heading text-xl font-semibold text-foreground mb-2">
@@ -65,7 +66,7 @@ const PowerTrioSection = () => (
                 {s.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground"
+                    className="rounded-full bg-surface-primary px-3 py-1 text-xs font-medium text-muted-foreground"
                   >
                     {tag}
                   </span>

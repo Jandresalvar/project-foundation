@@ -13,7 +13,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/85 backdrop-blur-lg border-b border-border/90 shadow-sm">
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-16 h-16">
         {/* Logo */}
         <a href="#" className="font-heading text-xl font-bold tracking-tight text-foreground">
@@ -53,7 +53,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-border bg-background px-6 py-4 space-y-4">
+        <div className="md:hidden border-t border-border/90 bg-card/95 backdrop-blur px-6 py-4 space-y-4">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}

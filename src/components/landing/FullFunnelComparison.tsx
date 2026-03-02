@@ -18,7 +18,8 @@ const ROWS: ComparisonRow[] = [
 ];
 
 const FullFunnelComparison = () => (
-  <section id="comparativa" className="py-24 md:py-32">
+  <section id="comparativa" className="relative py-24 md:py-32 bg-surface-primary">
+    <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-accent/8 to-transparent" />
     <div className="max-w-4xl mx-auto px-6 lg:px-16">
       <FadeIn className="text-center max-w-2xl mx-auto mb-14">
         <p className="text-sm font-semibold text-accent tracking-wide uppercase mb-3">
@@ -33,7 +34,7 @@ const FullFunnelComparison = () => (
       </FadeIn>
 
       <FadeIn delay={0.15}>
-        <div className="rounded-2xl border border-border bg-card shadow-sm overflow-hidden">
+        <div className="rounded-2xl border border-border/90 bg-card/95 shadow-sm overflow-hidden">
           {/* Header */}
           <div className="grid grid-cols-[1fr_auto_auto] sm:grid-cols-[1fr_140px_140px] text-center border-b border-border">
             <div className="p-4 text-left" />
@@ -42,7 +43,7 @@ const FullFunnelComparison = () => (
                 Agencia Tradicional
               </p>
             </div>
-            <div className="p-4 border-l border-border bg-accent/5">
+            <div className="p-4 border-l border-border bg-accent/8">
               <p className="text-xs font-semibold text-accent uppercase tracking-wide">
                 EA Creatives
               </p>
@@ -73,7 +74,7 @@ const FullFunnelComparison = () => (
               </div>
               
               {/* Celda EA Creatives */}
-              <div className="p-4 border-l border-border bg-accent/5 flex items-center justify-center">
+              <div className="p-4 border-l border-border bg-accent/8 flex items-center justify-center">
                 {row.feature === "Tiempo que debes invertir" ? (
                   <span className="text-xs font-bold text-success">MÍNIMO</span>
                 ) : (

@@ -30,7 +30,8 @@ const STEPS: Step[] = [
 ];
 
 const ProcessSection = () => (
-  <section id="proceso" className="py-24 md:py-32 bg-secondary/50">
+  <section id="proceso" className="relative py-24 md:py-32 bg-surface-accent">
+    <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-accent/10 to-transparent" />
     <div className="max-w-7xl mx-auto px-6 lg:px-16">
       <FadeIn className="text-center max-w-2xl mx-auto mb-16">
         <p className="text-sm font-semibold text-accent tracking-wide uppercase mb-3">
@@ -44,11 +45,11 @@ const ProcessSection = () => (
       <StaggerContainer className="grid md:grid-cols-3 gap-8" staggerDelay={0.15}>
         {STEPS.map((step) => (
           <StaggerItem key={step.number}>
-            <div className="relative text-center space-y-4">
-              <span className="block font-heading text-5xl font-bold text-border select-none">
+            <div className="relative text-center space-y-4 rounded-2xl border border-border/70 bg-card/70 p-6">
+              <span className="block font-heading text-5xl font-bold text-accent/20 select-none">
                 {step.number}
               </span>
-              <div className="mx-auto flex items-center justify-center w-12 h-12 rounded-xl bg-accent/10 text-accent">
+              <div className="mx-auto flex items-center justify-center w-12 h-12 rounded-xl bg-accent/12 text-accent">
                 {step.icon}
               </div>
               <h3 className="font-heading text-xl font-semibold text-foreground">

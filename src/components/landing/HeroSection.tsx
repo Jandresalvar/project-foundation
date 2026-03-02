@@ -3,14 +3,25 @@ import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/lib/motion";
 import { Link } from "react-router-dom";
 
+type FlowNodeAccent = "accent" | "success";
+
+const NODE_ACCENT_STYLES: Record<FlowNodeAccent, string> = {
+  accent: "bg-accent/10 text-accent",
+  success: "bg-success/10 text-success",
+};
+
 const HeroSection = () => (
-  <section className="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
-    <div className="max-w-7xl mx-auto px-6 lg:px-16">
+  <section className="relative overflow-hidden bg-surface-accent pt-32 pb-20 md:pt-44 md:pb-32">
+    <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-accent/10 to-transparent" />
+    <div aria-hidden className="pointer-events-none absolute -top-24 right-10 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
+    <div aria-hidden className="pointer-events-none absolute bottom-0 left-10 h-56 w-56 rounded-full bg-success/10 blur-3xl" />
+
+    <div className="relative max-w-7xl mx-auto px-6 lg:px-16">
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Copy */}
         <div className="space-y-8">
           <FadeIn>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-4 py-1.5 text-xs font-medium text-muted-foreground">
+            <span className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-4 py-1.5 text-xs font-medium text-muted-foreground">
               <Zap className="w-3.5 h-3.5 text-accent" />
               Sistemas de Venta Automáticos
             </span>
@@ -49,7 +60,7 @@ const HeroSection = () => (
             {/* Background glow */}
             <div className="absolute -inset-4 bg-accent/10 rounded-3xl blur-3xl" />
 
-            <div className="relative rounded-2xl border border-border bg-card/80 backdrop-blur-xl shadow-lg p-6 space-y-4">
+            <div className="relative rounded-2xl border border-border/80 bg-card/90 backdrop-blur-xl shadow-lg p-6 space-y-4">
               {/* Flow header */}
               <div className="flex items-center gap-3 pb-4 border-b border-border">
                 <div className="w-3 h-3 rounded-full bg-destructive/60" />
@@ -63,21 +74,21 @@ const HeroSection = () => (
               {/* Flow nodes */}
               <div className="space-y-3">
                 <FlowNode
-                  icon={<BarChart3 className="w-4 h-4 text-accent" />}
+                  icon={<BarChart3 className="w-4 h-4" />}
                   label="Meta Ads Campaign"
                   sublabel="Lead generado"
                   accent="accent"
                 />
                 <FlowConnector />
                 <FlowNode
-                  icon={<MessageCircle className="w-4 h-4 text-success" />}
+                  icon={<MessageCircle className="w-4 h-4" />}
                   label="WhatsApp Bot"
                   sublabel="Respuesta automática"
                   accent="success"
                 />
                 <FlowConnector />
                 <FlowNode
-                  icon={<BarChart3 className="w-4 h-4 text-accent" />}
+                  icon={<BarChart3 className="w-4 h-4" />}
                   label="CRM Dashboard"
                   sublabel="Lead calificado"
                   accent="accent"
@@ -107,10 +118,10 @@ const FlowNode = ({
   icon: React.ReactNode;
   label: string;
   sublabel: string;
-  accent: string;
+  accent: FlowNodeAccent;
 }) => (
-  <div className={`flex items-center gap-3 rounded-xl border border-border bg-background p-3`}>
-    <div className={`flex items-center justify-center w-9 h-9 rounded-lg bg-${accent}/10`}>
+  <div className="flex items-center gap-3 rounded-xl border border-border bg-card p-3">
+    <div className={`flex items-center justify-center w-9 h-9 rounded-lg ${NODE_ACCENT_STYLES[accent]}`}>
       {icon}
     </div>
     <div>
@@ -127,7 +138,7 @@ const FlowConnector = () => (
 );
 
 const StatChip = ({ label, value }: { label: string; value: string }) => (
-  <div className="text-center rounded-lg bg-secondary p-2">
+  <div className="text-center rounded-lg bg-surface-primary p-2">
     <p className="text-base font-bold text-foreground font-heading">{value}</p>
     <p className="text-[11px] text-muted-foreground">{label}</p>
   </div>

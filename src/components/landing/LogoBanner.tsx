@@ -9,7 +9,7 @@ const LOGOS = [
 
 const LogoBanner = () => {
   return (
-    <section className="relative py-16 overflow-hidden bg-background border-y border-border">
+    <section className="relative py-16 overflow-hidden bg-surface-neutral border-y border-border">
       {/* 
         Efecto de brillo superior inspirado en la imagen, 
         pero adaptado a los colores de la marca (accent/primary).

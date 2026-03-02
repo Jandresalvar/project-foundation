@@ -17,7 +17,8 @@ const SectionFallback = () => (
 );
 
 const Index = () => (
-  <main className="min-h-screen bg-background">
+  <main className="relative isolate min-h-screen bg-background">
+    <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 section-chromatic-wash" />
     <Navbar />
     {/* Always load top-of-the-fold content immediately */}
     <Suspense fallback={<SectionFallback />}>

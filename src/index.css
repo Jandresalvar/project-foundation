@@ -7,6 +7,11 @@
     --background: 210 40% 98%;
     --foreground: 215 28% 17%;
 
+    --surface-primary: 213 65% 96%;
+    --surface-accent: 213 100% 97%;
+    --surface-success: 156 54% 96%;
+    --surface-neutral: 210 32% 95%;
+
     --card: 0 0% 100%;
     --card-foreground: 215 28% 17%;
 
@@ -50,6 +55,11 @@
   .dark {
     --background: 222 47% 6%;
     --foreground: 210 40% 98%;
+
+    --surface-primary: 217 33% 14%;
+    --surface-accent: 218 46% 16%;
+    --surface-success: 160 34% 14%;
+    --surface-neutral: 217 30% 13%;
 
     --card: 222 47% 9%;
     --card-foreground: 210 40% 98%;
@@ -102,5 +112,29 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+@layer utilities {
+  .bg-surface-primary {
+    background-color: hsl(var(--surface-primary));
+  }
+
+  .bg-surface-accent {
+    background-color: hsl(var(--surface-accent));
+  }
+
+  .bg-surface-success {
+    background-color: hsl(var(--surface-success));
+  }
+
+  .bg-surface-neutral {
+    background-color: hsl(var(--surface-neutral));
+  }
+
+  .section-chromatic-wash {
+    background-image:
+      radial-gradient(circle at 12% 0%, hsl(var(--accent) / 0.10), transparent 45%),
+      radial-gradient(circle at 88% 100%, hsl(var(--success) / 0.08), transparent 50%);
   }
 }

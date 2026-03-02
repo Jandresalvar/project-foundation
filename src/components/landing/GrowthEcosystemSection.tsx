@@ -33,7 +33,8 @@ const CARDS: EcoCard[] = [
 ];
 
 const GrowthEcosystemSection = () => (
-  <section className="py-24 md:py-32 bg-secondary/50">
+  <section className="relative py-24 md:py-32 bg-surface-success">
+    <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-success/12 to-transparent" />
     <div className="max-w-7xl mx-auto px-6 lg:px-16">
       <FadeIn className="text-center max-w-2xl mx-auto mb-16">
         <p className="text-sm font-semibold text-success tracking-wide uppercase mb-3">
@@ -50,9 +51,9 @@ const GrowthEcosystemSection = () => (
       <StaggerContainer className="grid md:grid-cols-3 gap-6 lg:gap-8" staggerDelay={0.15}>
         {CARDS.map((c) => (
           <StaggerItem key={c.title}>
-            <article className="group h-full rounded-2xl border border-border bg-card p-7 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+            <article className="group h-full rounded-2xl border border-border/90 bg-card/95 p-7 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 hover:border-success/25">
               <div className="mb-4 flex items-center gap-3">
-                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-success/10 text-success">
+                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-success/12 text-success transition-colors duration-300 group-hover:bg-success group-hover:text-success-foreground">
                   {c.icon}
                 </div>
                 <h3 className="font-heading text-lg font-semibold text-foreground">
