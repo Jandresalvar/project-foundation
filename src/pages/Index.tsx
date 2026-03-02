@@ -24,9 +24,6 @@ const Index = () => (
     <Suspense fallback={<SectionFallback />}>
       <HeroSection />
     </Suspense>
-    <Suspense fallback={<SectionFallback />}>
-      <IndustriesSection />
-    </Suspense>
 
     {/* Lazy load below-the-fold sections on scroll */}
     <ScrollObserver fallback={<SectionFallback />}>
@@ -38,6 +35,12 @@ const Index = () => (
     <ScrollObserver fallback={<SectionFallback />}>
       <Suspense fallback={<SectionFallback />}>
         <GrowthEcosystemSection />
+      </Suspense>
+    </ScrollObserver>
+
+    <ScrollObserver fallback={<SectionFallback />}>
+      <Suspense fallback={<SectionFallback />}>
+        <IndustriesSection />
       </Suspense>
     </ScrollObserver>
 

@@ -4,8 +4,10 @@ import { FadeIn } from "@/lib/motion";
 import { Link } from "react-router-dom";
 
 const FinalCTA = () => (
-  <section className="relative py-24 md:py-32 bg-surface-neutral">
-    <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-accent/8 to-transparent" />
+  <section className="relative overflow-hidden py-24 md:py-32 bg-primary">
+    <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-accent/18 to-transparent" />
+    <div aria-hidden className="pointer-events-none absolute -top-20 right-8 h-56 w-56 rounded-full bg-accent/12 blur-3xl" />
+    <div aria-hidden className="pointer-events-none absolute bottom-0 left-10 h-48 w-48 rounded-full bg-success/12 blur-3xl" />
     <div className="max-w-3xl mx-auto px-6 lg:px-16">
       <FadeIn>
         <div className="relative rounded-2xl border border-border/90 bg-card/95 shadow-lg p-10 md:p-14 text-center space-y-6">

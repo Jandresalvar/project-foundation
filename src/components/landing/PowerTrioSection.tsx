@@ -34,17 +34,19 @@ const SERVICES: ServiceCard[] = [
 ];
 
 const PowerTrioSection = () => (
-  <section id="servicios" className="relative py-24 md:py-32 bg-surface-neutral">
-    <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-accent/8 to-transparent" />
-    <div className="max-w-7xl mx-auto px-6 lg:px-16">
+  <section id="servicios" className="relative overflow-hidden py-24 md:py-32 bg-primary">
+    <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-accent/18 to-transparent" />
+    <div aria-hidden className="pointer-events-none absolute -top-20 right-8 h-56 w-56 rounded-full bg-accent/12 blur-3xl" />
+    <div aria-hidden className="pointer-events-none absolute bottom-0 left-10 h-48 w-48 rounded-full bg-success/12 blur-3xl" />
+    <div className="relative max-w-7xl mx-auto px-6 lg:px-16">
       <FadeIn className="text-center max-w-2xl mx-auto mb-16">
         <p className="text-sm font-semibold text-accent tracking-wide uppercase mb-3">
           Servicios Core
         </p>
-        <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground">
+        <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary-foreground">
           El trío que impulsa tu crecimiento
         </h2>
-        <p className="text-muted-foreground mt-4 text-lg leading-relaxed">
+        <p className="text-primary-foreground/80 mt-4 text-lg leading-relaxed">
           Tres pilares diseñados para captar, convertir y retener clientes de forma predecible.
         </p>
       </FadeIn>
