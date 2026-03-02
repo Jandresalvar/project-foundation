@@ -12,21 +12,22 @@ const HeroSection = () => (
           <FadeIn>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-4 py-1.5 text-xs font-medium text-muted-foreground">
               <Zap className="w-3.5 h-3.5 text-accent" />
-              Ads · Automatización · CRM
+              Sistemas de Venta Automáticos
             </span>
           </FadeIn>
 
           <FadeIn delay={0.1}>
             <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-foreground">
-              Escala tus ventas con anuncios inteligentes y{" "}
-              <span className="text-accent">automatización</span> que trabaja por ti.
+              Convierte interesados en clientes con un sistema que{" "}
+              <span className="text-accent">vende por ti.</span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.2}>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-              Desde Meta Ads hasta automatización con n8n y WhatsApp. Llevamos tu
-              negocio de procesos manuales a un ecosistema de crecimiento predecible.
+              Potenciamos el proceso de ventas de tu empresa. Captamos clientes potenciales, 
+              los filtramos automáticamente por WhatsApp y te entregamos citas o leads calificados, 
+              listos para cerrar.
             </p>
           </FadeIn>
 

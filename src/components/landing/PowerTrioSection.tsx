@@ -12,24 +12,24 @@ interface ServiceCard {
 const SERVICES: ServiceCard[] = [
   {
     icon: <Megaphone className="w-6 h-6" />,
-    title: "Tráfico Inteligente",
+    title: "Atraemos Clientes Ideales",
     description:
-      "Gestión proactiva de Meta Ads y Google Ads enfocada en ROI, incluyendo diseño de creativos de alto impacto.",
-    tags: ["Meta Ads", "Google Ads", "Creativos"],
+      "Diseñamos anuncios magnéticos en redes sociales que capturan la atención de personas que realmente necesitan tus servicios.",
+    tags: ["Campañas", "Anuncios", "Creativos"],
   },
   {
     icon: <MousePointerClick className="w-6 h-6" />,
-    title: "Conversión & Leads",
+    title: "Filtramos y Calificamos",
     description:
-      "Diseño de Landing Pages de alta conversión y optimización constante (CRO) para que cada clic valga la pena.",
-    tags: ["Landing Pages", "CRO", "A/B Testing"],
+      "Creamos páginas que convencen. Tu visitante no solo lee, sino que deja sus datos porque entiende el valor de lo que ofreces.",
+    tags: ["Páginas de Venta", "Captación", "Optimización"],
   },
   {
     icon: <Bot className="w-6 h-6" />,
-    title: "Automatización Operativa",
+    title: "Tu Secretaria Virtual 24/7",
     description:
-      "Despliegue de Chatbots en WhatsApp y flujos de trabajo en n8n para automatizar facturación, pedidos y atención.",
-    tags: ["n8n", "WhatsApp", "Chatbots"],
+      "Un asistente en WhatsApp responde dudas al instante, perfila al cliente y agenda la cita directamente en tu calendario.",
+    tags: ["WhatsApp", "Agendamiento", "Asistente AI"],
   },
 ];
 

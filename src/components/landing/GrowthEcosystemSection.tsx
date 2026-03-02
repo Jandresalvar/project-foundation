@@ -11,24 +11,24 @@ interface EcoCard {
 const CARDS: EcoCard[] = [
   {
     icon: <Mail className="w-5 h-5" />,
-    title: "Lead Nurturing",
-    tagline: "No dejes que ningún lead se enfríe",
+    title: "Seguimiento Automático",
+    tagline: "Que ningún cliente se enfríe",
     description:
-      "Secuencias automáticas de email marketing para convertir prospectos en clientes a largo plazo.",
+      "Si alguien pregunta y no compra hoy, el sistema le envía correos y mensajes de valor hasta que esté listo.",
   },
   {
     icon: <LayoutDashboard className="w-5 h-5" />,
-    title: "Centralización CRM",
-    tagline: "Adiós al caos",
+    title: "Gestión de Pacientes/Clientes",
+    tagline: "Adiós al desorden y los post-its",
     description:
-      "Organización total de tu base de datos y pipeline de ventas con Monday.com.",
+      "Toda la información de tus clientes en una sola plataforma. Sabrás exactamente en qué etapa de compra está cada uno.",
   },
   {
     icon: <PieChart className="w-5 h-5" />,
-    title: "Data Intelligence",
-    tagline: "Decisiones basadas en datos",
+    title: "Control y Transparencia",
+    tagline: "Decisiones basadas en números reales",
     description:
-      "Paneles en tiempo real para medir tu inversión y retorno con total transparencia.",
+      "Visualiza cuánto inviertes, cuántas citas generas y cuánto vendes, todo en un reporte fácil de entender.",
   },
 ];
 

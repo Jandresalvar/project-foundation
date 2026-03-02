@@ -7,9 +7,9 @@ import { FadeIn } from "@/lib/motion";
 import { Link } from "react-router-dom";
 
 const TRUST_SIGNALS = [
-  { icon: Shield, text: "Datos 100% seguros" },
-  { icon: Clock, text: "Respuesta en menos de 24h" },
-  { icon: MessageCircle, text: "Sin compromisos" },
+  { icon: Shield, text: "Consultoría sin costo ni compromiso" },
+  { icon: Clock, text: "Agenda en tu horario preferido" },
+  { icon: MessageCircle, text: "Directo con un experto" },
 ] as const;
 
 const Consultoria = () => (
@@ -32,17 +32,15 @@ const Consultoria = () => (
         <FadeIn>
           <div className="text-center space-y-4 mb-12">
             <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-foreground">
-              ¿Listo para poner tu crecimiento en{" "}
-              <span className="text-accent">piloto automático</span>?
+              Reserva tu <span className="text-accent">Sesión Estratégica</span> Gratuita
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-lg mx-auto">
-              Cuéntanos un poco sobre tu negocio. Analizaremos tu ecosistema
-              actual y diseñaremos una propuesta a tu medida.
+              En 30 minutos analizaremos tu proceso de ventas actual y te mostraremos exactamente cómo la automatización puede traerte más pacientes/clientes esta misma semana.
             </p>
           </div>
         </FadeIn>
 
-        {/* Formulario */}
+        {/* Formulario / Calendario */}
         <FadeIn delay={0.15}>
           <div className="relative">
             <div className="absolute -inset-3 rounded-3xl bg-accent/5 blur-2xl -z-10" />
@@ -51,23 +49,29 @@ const Consultoria = () => (
               onSubmit={(e) => e.preventDefault()}
               className="rounded-2xl border border-border bg-card shadow-lg p-8 md:p-10 space-y-6"
             >
+              <div className="bg-secondary/50 p-4 rounded-xl border border-border mb-6">
+                <p className="text-sm text-foreground font-medium text-center">
+                  👋 Completa estos datos rápidos para prepararnos para la llamada y te redirigiremos a nuestro calendario.
+                </p>
+              </div>
+
               <FormField
                 id="name"
-                label="Nombre completo"
+                label="Nombre y Apellido"
                 placeholder="Ej. Juan Pérez"
                 type="text"
               />
 
               <FormField
-                id="email"
-                label="Correo electrónico"
-                placeholder="juan@empresa.com"
-                type="email"
+                id="business"
+                label="Empresa / Industria"
+                placeholder="Ej. Clínica Odontológica Sonrisas"
+                type="text"
               />
 
               <div className="space-y-2">
                 <Label htmlFor="whatsapp" className="flex items-center gap-2 text-foreground font-medium">
-                  Número de celular (WhatsApp)
+                  WhatsApp
                   <MessageCircle className="w-4 h-4 text-success" />
                 </Label>
                 <Input
@@ -78,31 +82,14 @@ const Consultoria = () => (
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="business" className="text-foreground font-medium">
-                  Lo más importante de tu empresa
-                </Label>
-                <Textarea
-                  id="business"
-                  rows={4}
-                  placeholder="Cuéntanos brevemente qué vendes y cuál es tu mayor reto hoy (ej. 'Necesito automatizar el seguimiento de leads')."
-                  className="rounded-xl text-base leading-relaxed focus-visible:ring-accent/20 resize-none"
-                />
-              </div>
-
               <Button
                 type="submit"
                 size="lg"
                 className="w-full h-13 gap-2 rounded-xl text-base font-semibold transition-all duration-300 hover:bg-accent hover:-translate-y-0.5"
               >
-                Enviar y agendar mi consultoría
+                Continuar al Calendario
                 <ArrowRight className="w-4 h-4" />
               </Button>
-
-              {/* Trust micro-copy */}
-              <p className="text-center text-xs text-muted-foreground">
-                🔒 Tus datos están seguros. Te contactaremos en menos de 24 horas.
-              </p>
             </form>
           </div>
         </FadeIn>
