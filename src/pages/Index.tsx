@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import Navbar from "@/components/landing/Navbar";
+import { ScrollObserver } from "@/lib/motion";
 
 const HeroSection = lazy(() => import("@/components/landing/HeroSection"));
 const IndustriesSection = lazy(() => import("@/components/landing/IndustriesSection"));
@@ -18,15 +19,56 @@ const SectionFallback = () => (
 const Index = () => (
   <main className="min-h-screen bg-background">
     <Navbar />
-    <Suspense fallback={<SectionFallback />}><HeroSection /></Suspense>
-    <Suspense fallback={<SectionFallback />}><IndustriesSection /></Suspense>
-    <Suspense fallback={<SectionFallback />}><PowerTrioSection /></Suspense>
-    <Suspense fallback={<SectionFallback />}><GrowthEcosystemSection /></Suspense>
-    <Suspense fallback={<SectionFallback />}><FullFunnelComparison /></Suspense>
-    <Suspense fallback={<SectionFallback />}><ProcessSection /></Suspense>
-    <Suspense fallback={<SectionFallback />}><LogoBanner /></Suspense>
-    <Suspense fallback={<SectionFallback />}><FinalCTA /></Suspense>
-    <Suspense fallback={<SectionFallback />}><Footer /></Suspense>
+    {/* Always load top-of-the-fold content immediately */}
+    <Suspense fallback={<SectionFallback />}>
+      <HeroSection />
+    </Suspense>
+    <Suspense fallback={<SectionFallback />}>
+      <IndustriesSection />
+    </Suspense>
+
+    {/* Lazy load below-the-fold sections on scroll */}
+    <ScrollObserver fallback={<SectionFallback />}>
+      <Suspense fallback={<SectionFallback />}>
+        <PowerTrioSection />
+      </Suspense>
+    </ScrollObserver>
+
+    <ScrollObserver fallback={<SectionFallback />}>
+      <Suspense fallback={<SectionFallback />}>
+        <GrowthEcosystemSection />
+      </Suspense>
+    </ScrollObserver>
+
+    <ScrollObserver fallback={<SectionFallback />}>
+      <Suspense fallback={<SectionFallback />}>
+        <FullFunnelComparison />
+      </Suspense>
+    </ScrollObserver>
+
+    <ScrollObserver fallback={<SectionFallback />}>
+      <Suspense fallback={<SectionFallback />}>
+        <ProcessSection />
+      </Suspense>
+    </ScrollObserver>
+
+    <ScrollObserver fallback={<SectionFallback />}>
+      <Suspense fallback={<SectionFallback />}>
+        <LogoBanner />
+      </Suspense>
+    </ScrollObserver>
+
+    <ScrollObserver fallback={<SectionFallback />}>
+      <Suspense fallback={<SectionFallback />}>
+        <FinalCTA />
+      </Suspense>
+    </ScrollObserver>
+
+    <ScrollObserver fallback={<SectionFallback />}>
+      <Suspense fallback={<SectionFallback />}>
+        <Footer />
+      </Suspense>
+    </ScrollObserver>
   </main>
 );
 

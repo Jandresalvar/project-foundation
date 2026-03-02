@@ -22,11 +22,11 @@ const LogoBanner = () => {
           <p className="text-center text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-8">
             Empresas que ya confían en nuestros sistemas
           </p>
-          <div className="flex flex-wrap justify-center md:justify-between items-center gap-10 md:gap-12 opacity-80 grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100">
+          <div className="flex flex-wrap justify-center md:justify-between items-center gap-10 md:gap-12">
             {LOGOS.map((logo) => (
               <div
                 key={logo.id}
-                className="flex items-center justify-center h-12 md:h-16 w-32 md:w-40 text-muted-foreground font-semibold font-heading tracking-wider transition-colors hover:text-foreground"
+                className="flex items-center justify-center h-12 md:h-16 w-32 md:w-40 text-muted-foreground font-semibold font-heading tracking-wider opacity-60 grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:text-foreground"
               >
                 {/* 
                   TODO: Cuando tengas los logos reales, reemplaza el texto con la etiqueta img:

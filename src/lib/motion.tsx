@@ -1,5 +1,5 @@
 import { motion, type HTMLMotionProps } from "framer-motion";
-import { type ReactNode } from "react";
+import { type ReactNode, useRef, useState, useEffect } from "react";
 
 interface FadeInProps extends HTMLMotionProps<"div"> {
   children: ReactNode;
@@ -77,3 +77,36 @@ export const StaggerItem = ({
     {children}
   </motion.div>
 );
+
+export const ScrollObserver = ({
+  children,
+  fallback,
+  rootMargin = "100px",
+}: {
+  children: ReactNode;
+  fallback: ReactNode;
+  rootMargin?: string;
+}) => {
+  const [isInView, setIsInView] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [rootMargin]);
+
+  return <div ref={ref}>{isInView ? children : fallback}</div>;
+};
