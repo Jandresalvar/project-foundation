@@ -33,7 +33,7 @@ const INDUSTRIES: IndustryCard[] = [
 ];
 
 const IndustriesSection = () => (
-  <section className="relative py-24 md:py-32 bg-surface-primary">
+  <section className="relative py-24 md:py-32 bg-surface-bridge">
     <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-accent/8 to-transparent" />
     <div className="max-w-7xl mx-auto px-6 lg:px-16">
       <FadeIn className="text-center max-w-2xl mx-auto mb-16">

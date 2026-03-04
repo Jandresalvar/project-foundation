@@ -18,7 +18,7 @@ const ROWS: ComparisonRow[] = [
 ];
 
 const FullFunnelComparison = () => (
-  <section id="comparativa" className="relative py-24 md:py-32 bg-surface-primary">
+  <section id="comparativa" className="relative py-24 md:py-32 bg-surface-bridge">
     <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-accent/8 to-transparent" />
     <div className="max-w-4xl mx-auto px-6 lg:px-16">
       <FadeIn className="text-center max-w-2xl mx-auto mb-14">

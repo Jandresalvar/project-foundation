@@ -34,7 +34,7 @@ const SERVICES: ServiceCard[] = [
 ];
 
 const PowerTrioSection = () => (
-  <section id="servicios" className="relative overflow-hidden py-24 md:py-32 bg-primary">
+  <section id="servicios" className="relative overflow-hidden py-24 md:py-32 bg-surface-core">
     <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-accent/18 to-transparent" />
     <div aria-hidden className="pointer-events-none absolute -top-20 right-8 h-56 w-56 rounded-full bg-accent/12 blur-3xl" />
     <div aria-hidden className="pointer-events-none absolute bottom-0 left-10 h-48 w-48 rounded-full bg-success/12 blur-3xl" />

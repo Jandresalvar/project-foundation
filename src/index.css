@@ -11,6 +11,12 @@
     --surface-accent: 213 100% 97%;
     --surface-success: 156 54% 96%;
     --surface-neutral: 210 32% 95%;
+    --surface-frame: 217 44% 17%;
+    --surface-core: 217 40% 20%;
+    --surface-complement: 216 58% 93%;
+    --surface-bridge: 214 72% 95%;
+    --surface-cta: 214 62% 95%;
+    --surface-cta-card: 217 36% 21%;
 
     --card: 0 0% 100%;
     --card-foreground: 215 28% 17%;
@@ -60,6 +66,12 @@
     --surface-accent: 218 46% 16%;
     --surface-success: 160 34% 14%;
     --surface-neutral: 217 30% 13%;
+    --surface-frame: 217 33% 11%;
+    --surface-core: 217 33% 14%;
+    --surface-complement: 217 30% 18%;
+    --surface-bridge: 217 30% 16%;
+    --surface-cta: 217 30% 15%;
+    --surface-cta-card: 217 36% 19%;
 
     --card: 222 47% 9%;
     --card-foreground: 210 40% 98%;
@@ -130,6 +142,30 @@
 
   .bg-surface-neutral {
     background-color: hsl(var(--surface-neutral));
+  }
+
+  .bg-surface-frame {
+    background-color: hsl(var(--surface-frame));
+  }
+
+  .bg-surface-core {
+    background-color: hsl(var(--surface-core));
+  }
+
+  .bg-surface-complement {
+    background-color: hsl(var(--surface-complement));
+  }
+
+  .bg-surface-bridge {
+    background-color: hsl(var(--surface-bridge));
+  }
+
+  .bg-surface-cta {
+    background-color: hsl(var(--surface-cta));
+  }
+
+  .bg-surface-cta-card {
+    background-color: hsl(var(--surface-cta-card));
   }
 
   .section-chromatic-wash {
