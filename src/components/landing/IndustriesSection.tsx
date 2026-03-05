@@ -1,12 +1,15 @@
 import { Home, Stethoscope, Briefcase } from "lucide-react";
+import { motion } from "framer-motion";
 import { StaggerContainer, StaggerItem, FadeIn } from "@/lib/motion";
 import { cn } from "@/lib/utils";
+import { AnimatedFeatureCard, type AnimatedFeatureCardTone } from "@/components/ui/animated-feature-card";
 
 interface IndustryCard {
   icon: React.ReactNode;
   title: string;
   problem: string;
   solution: string;
+  tone: AnimatedFeatureCardTone;
 }
 
 const INDUSTRIES: IndustryCard[] = [
@@ -16,6 +19,7 @@ const INDUSTRIES: IndustryCard[] = [
     problem: "¿Cansado de mostrar propiedades a curiosos que no compran?",
     solution:
       "Captamos prospectos, nuestro asistente virtual pre-califica su presupuesto y solo te agenda visitas con compradores reales.",
+    tone: "primary",
   },
   {
     icon: <Stethoscope className={cn('w-6', 'h-6')} />,
@@ -23,6 +27,7 @@ const INDUSTRIES: IndustryCard[] = [
     problem: "¿Pacientes que agendan pero no asisten a la cita?",
     solution:
       "Llenamos tu agenda con campañas locales y el sistema envía recordatorios automáticos por WhatsApp para asegurar su asistencia.",
+    tone: "accent",
   },
   {
     icon: <Briefcase className={cn('w-6', 'h-6')} />,
@@ -30,6 +35,7 @@ const INDUSTRIES: IndustryCard[] = [
     problem: "¿Leads caros que no contestan el teléfono?",
     solution:
       "Conectamos tus anuncios directo a un CRM donde el prospecto es contactado en menos de 5 minutos, aumentando tu tasa de cierre.",
+    tone: "success",
   },
 ];
 
@@ -49,33 +55,46 @@ const IndustriesSection = () => (
       <StaggerContainer className={cn('grid', 'md:grid-cols-3', 'gap-6', 'lg:gap-8')} staggerDelay={0.15}>
         {INDUSTRIES.map((ind) => (
           <StaggerItem key={ind.title}>
-            <article className={cn('group', 'h-full', 'rounded-2xl', 'border', 'border-border/90', 'bg-card/95', 'p-8', 'shadow-sm', 'transition-all', 'duration-300', 'hover:-translate-y-1', 'hover:shadow-md', 'hover:border-accent/30')}>
-              <div className={cn('mb-6', 'flex', 'items-center', 'justify-center', 'w-14', 'h-14', 'rounded-2xl', 'bg-accent/12', 'text-accent', 'transition-colors', 'duration-300', 'group-hover:bg-accent', 'group-hover:text-accent-foreground')}>
-                {ind.icon}
-              </div>
-              <h3 className={cn('font-heading', 'text-xl', 'font-bold', 'text-foreground', 'mb-4')}>
-                {ind.title}
-              </h3>
-              <div className="space-y-4">
+            <AnimatedFeatureCard
+              cardHoverOffset={0}
+              tone={ind.tone}
+              visualVariant="hidden"
+              contentHoverOffset={0}
+              className="min-h-[336px]"
+              contentClassName="border-0 bg-transparent p-0 shadow-none backdrop-blur-0"
+              heading={
+                <span className="flex items-center gap-3">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-foreground/[0.04] text-[var(--feature-chip-text)] shadow-sm">
+                    {ind.icon}
+                  </span>
+                  <span>{ind.title}</span>
+                </span>
+              }
+              description={
                 <div>
-                  <p className={cn('text-xs', 'font-semibold', 'text-destructive', 'uppercase', 'tracking-wider', 'mb-1')}>
-                    El Problema
+                  <p className={cn('mb-1', 'text-[0.68rem]', 'font-semibold', 'uppercase', 'tracking-[0.22em]', 'text-destructive')}>
+                    El problema
                   </p>
-                  <p className={cn('text-sm', 'text-muted-foreground')}>
+                  <p className={cn('text-sm', 'leading-relaxed', 'text-muted-foreground')}>
                     {ind.problem}
                   </p>
                 </div>
-                <div className={cn('h-px', 'w-full', 'bg-border/80')} />
-                <div>
-                  <p className={cn('text-xs', 'font-semibold', 'text-success', 'uppercase', 'tracking-wider', 'mb-1')}>
-                    Nuestra Solución
+              }
+              details={
+                <motion.div
+                  variants={{
+                    rest: { y: 0, scale: 1, opacity: 0.96 },
+                    hover: { y: 10, scale: 1, opacity: 1 },
+                  }}
+                  className="rounded-[24px] border p-4 text-left shadow-[0_18px_36px_hsl(var(--foreground)/0.1)] [border-color:var(--feature-stage-border)] [background:var(--feature-chip-bg)] [color:var(--feature-chip-text)]"
+                >
+                  <p className="mb-2 text-[0.66rem] font-semibold uppercase tracking-[0.22em] opacity-70">
+                    Nuestra solución
                   </p>
-                  <p className={cn('text-sm', 'text-foreground', 'font-medium')}>
-                    {ind.solution}
-                  </p>
-                </div>
-              </div>
-            </article>
+                  <p className="text-sm font-medium leading-relaxed">{ind.solution}</p>
+                </motion.div>
+              }
+            />
           </StaggerItem>
         ))}
       </StaggerContainer>
