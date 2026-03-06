@@ -1,44 +1,62 @@
 import { FadeIn } from "@/lib/motion";
+import { LogoCloud } from "@/components/ui/logo-cloud-3";
+import { cn } from "@/lib/utils";
 
 const LOGOS = [
-  { id: 1, name: "AM Digital", src: "/assets/clients/logo-amdigital.svg" },
-  { id: 2, name: "Quintero", src: "/assets/clients/logo-quintero.svg" },
-  { id: 3, name: "Lemon", src: "/assets/clients/logo-lemon.svg" },
-  { id: 4, name: "Linné", src: "/assets/clients/logo-linne.svg" },
-  { id: 5, name: "Odontología", src: "/assets/clients/logo-odontologia.svg" },
+  { src: "/assets/clients/logo-amdigital-white.svg", alt: "AM Digital", className: "max-h-[120%] md:max-h-[120%]" },
+  { src: "/assets/clients/logo-quintero.svg", alt: "Quintero", className: "max-h-[210%] md:max-h-[210%]" },
+  { src: "/assets/clients/logo-lemon-white.svg", alt: "Lemon", className: "max-h-[210%] md:max-h-[210%]" },
+  { src: "/assets/clients/logo-linne.svg", alt: "Linné", className: "max-h-[210%] md:max-h-[210%]" },
+  { src: "/assets/clients/logo-odontologia.svg", alt: "Odontología", className: "max-h-[180%] md:max-h-[180%]" },
 ];
 
 const LogoBanner = () => {
   return (
-    <section className="relative py-16 overflow-hidden bg-surface-neutral border-y border-border">
-      {/* 
-        Efecto de brillo superior inspirado en la imagen, 
-        pero adaptado a los colores de la marca (accent/primary).
-      */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[2px] bg-accent blur-[2px] opacity-40" />
+    <section className={cn("relative overflow-hidden border-y border-primary-foreground/10 bg-surface-frame py-7 md:py-8")}>
+      <div
+        aria-hidden
+        className={cn(
+          "pointer-events-none absolute left-1/2 top-0 h-[1px] w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-accent/50 to-transparent",
+        )}
+      />
+      <div
+        aria-hidden
+        className={cn(
+          "pointer-events-none absolute left-1/2 top-0 h-[2px] w-1/2 -translate-x-1/2 bg-accent/70 opacity-40 blur-[2px]",
+        )}
+      />
+      <div
+        aria-hidden
+        className={cn(
+          "pointer-events-none absolute left-1/2 top-1/2 h-[24rem] w-[24rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,hsl(var(--accent)/0.06)_0%,transparent_64%)] blur-3xl",
+        )}
+      />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-16 relative z-10">
+      <div className={cn("relative z-10 mx-auto max-w-7xl px-6 lg:px-16")}>
         <FadeIn>
-          <p className="text-center text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-8">
-            Empresas que ya confían en nuestros sistemas
-          </p>
-          <div className="flex flex-wrap justify-center md:justify-between items-center gap-10 md:gap-12">
-            {LOGOS.map((logo) => (
-              <div
-                key={logo.id}
-                className="flex items-center justify-center h-12 md:h-16 w-32 md:w-40 text-muted-foreground font-semibold font-heading tracking-wider opacity-60 grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:text-foreground"
-              >
-                <img src={logo.src} alt={logo.name} className="h-full w-auto object-contain" />
-              </div>
-            ))}
+          <div className={cn("w-full px-0 py-1 md:py-2")}>
+            <h2 className={cn("mb-2 text-center text-base font-medium tracking-tight text-primary-foreground md:text-xl")}>
+              <span className={cn("text-primary-foreground/72")}>Empresas que ya confían en nuestros sistemas</span>
+            </h2>
+            <div className={cn("mx-auto mb-3 h-px max-w-sm bg-primary-foreground/12 [mask-image:linear-gradient(to_right,transparent,black,transparent)]")} />
+            <LogoCloud logos={LOGOS} />
+            <div className={cn("mt-3 h-px bg-primary-foreground/12 [mask-image:linear-gradient(to_right,transparent,black,transparent)]")} />
           </div>
         </FadeIn>
       </div>
 
-      {/* Efecto de brillo inferior */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-[2px] bg-accent blur-[2px] opacity-40" />
+      <div
+        aria-hidden
+        className={cn(
+          "pointer-events-none absolute bottom-0 left-1/2 h-[1px] w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-accent/50 to-transparent",
+        )}
+      />
+      <div
+        aria-hidden
+        className={cn(
+          "pointer-events-none absolute bottom-0 left-1/2 h-[2px] w-1/2 -translate-x-1/2 bg-accent/70 opacity-40 blur-[2px]",
+        )}
+      />
     </section>
   );
 };

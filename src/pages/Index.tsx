@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import Navbar from "@/components/landing/Navbar";
 import { ScrollObserver } from "@/lib/motion";
 
@@ -16,64 +16,117 @@ const SectionFallback = () => (
   <div className="h-40 rounded-2xl bg-muted animate-pulse mx-6 lg:mx-16" />
 );
 
-const Index = () => (
-  <main className="relative isolate min-h-screen bg-background">
-    <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 section-chromatic-wash" />
-    <Navbar />
-    {/* Always load top-of-the-fold content immediately */}
-    <Suspense fallback={<SectionFallback />}>
-      <HeroSection />
-    </Suspense>
+const HASH_SECTION_ORDER = ["servicios", "usos", "comparativa", "proceso"] as const;
 
-    {/* Lazy load below-the-fold sections on scroll */}
-    <ScrollObserver fallback={<SectionFallback />}>
-      <Suspense fallback={<SectionFallback />}>
-        <PowerTrioSection />
-      </Suspense>
-    </ScrollObserver>
+const Index = () => {
+  const [hash, setHash] = useState(() => window.location.hash.replace("#", ""));
 
-    <ScrollObserver fallback={<SectionFallback />}>
-      <Suspense fallback={<SectionFallback />}>
-        <GrowthEcosystemSection />
-      </Suspense>
-    </ScrollObserver>
+  useEffect(() => {
+    const syncHash = () => {
+      setHash(window.location.hash.replace("#", ""));
+    };
 
-    <ScrollObserver fallback={<SectionFallback />}>
-      <Suspense fallback={<SectionFallback />}>
-        <IndustriesSection />
-      </Suspense>
-    </ScrollObserver>
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
 
-    <ScrollObserver fallback={<SectionFallback />}>
-      <Suspense fallback={<SectionFallback />}>
-        <FullFunnelComparison />
-      </Suspense>
-    </ScrollObserver>
+    return () => window.removeEventListener("hashchange", syncHash);
+  }, []);
 
-    <ScrollObserver fallback={<SectionFallback />}>
-      <Suspense fallback={<SectionFallback />}>
-        <ProcessSection />
-      </Suspense>
-    </ScrollObserver>
+  const forcedSections = useMemo(() => {
+    const targetIndex = HASH_SECTION_ORDER.indexOf(hash as (typeof HASH_SECTION_ORDER)[number]);
 
-    <ScrollObserver fallback={<SectionFallback />}>
-      <Suspense fallback={<SectionFallback />}>
-        <LogoBanner />
-      </Suspense>
-    </ScrollObserver>
+    if (targetIndex === -1) {
+      return new Set<string>();
+    }
 
-    <ScrollObserver fallback={<SectionFallback />}>
-      <Suspense fallback={<SectionFallback />}>
-        <FinalCTA />
-      </Suspense>
-    </ScrollObserver>
+    return new Set(HASH_SECTION_ORDER.slice(0, targetIndex + 1));
+  }, [hash]);
 
-    <ScrollObserver fallback={<SectionFallback />}>
+  useEffect(() => {
+    if (!hash) {
+      return;
+    }
+
+    let frameId = 0;
+    let attempts = 0;
+    const maxAttempts = 40;
+
+    const scrollToHashTarget = () => {
+      const element = document.getElementById(hash);
+
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+
+      if (attempts < maxAttempts) {
+        attempts += 1;
+        frameId = window.requestAnimationFrame(scrollToHashTarget);
+      }
+    };
+
+    frameId = window.requestAnimationFrame(scrollToHashTarget);
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [hash]);
+
+  return (
+    <main className="relative isolate min-h-screen bg-background">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 section-chromatic-wash" />
+      <Navbar />
       <Suspense fallback={<SectionFallback />}>
-        <Footer />
+        <HeroSection />
       </Suspense>
-    </ScrollObserver>
-  </main>
-);
+
+      <ScrollObserver fallback={<SectionFallback />} forceVisible={forcedSections.has("servicios")}>
+        <Suspense fallback={<SectionFallback />}>
+          <PowerTrioSection />
+        </Suspense>
+      </ScrollObserver>
+
+      <ScrollObserver fallback={<SectionFallback />}>
+        <Suspense fallback={<SectionFallback />}>
+          <GrowthEcosystemSection />
+        </Suspense>
+      </ScrollObserver>
+
+      <ScrollObserver fallback={<SectionFallback />} forceVisible={forcedSections.has("usos")}>
+        <Suspense fallback={<SectionFallback />}>
+          <IndustriesSection />
+        </Suspense>
+      </ScrollObserver>
+
+      <ScrollObserver fallback={<SectionFallback />} forceVisible={forcedSections.has("comparativa")}>
+        <Suspense fallback={<SectionFallback />}>
+          <FullFunnelComparison />
+        </Suspense>
+      </ScrollObserver>
+
+      <ScrollObserver fallback={<SectionFallback />} forceVisible={forcedSections.has("proceso")}>
+        <Suspense fallback={<SectionFallback />}>
+          <ProcessSection />
+        </Suspense>
+      </ScrollObserver>
+
+      <ScrollObserver fallback={<SectionFallback />}>
+        <Suspense fallback={<SectionFallback />}>
+          <LogoBanner />
+        </Suspense>
+      </ScrollObserver>
+
+      <ScrollObserver fallback={<SectionFallback />}>
+        <Suspense fallback={<SectionFallback />}>
+          <FinalCTA />
+        </Suspense>
+      </ScrollObserver>
+
+      <ScrollObserver fallback={<SectionFallback />}>
+        <Suspense fallback={<SectionFallback />}>
+          <Footer />
+        </Suspense>
+      </ScrollObserver>
+    </main>
+  );
+};
 
 export default Index;

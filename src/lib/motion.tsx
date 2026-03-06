@@ -81,16 +81,23 @@ export const StaggerItem = ({
 export const ScrollObserver = ({
   children,
   fallback,
+  forceVisible = false,
   rootMargin = "100px",
 }: {
   children: ReactNode;
   fallback: ReactNode;
+  forceVisible?: boolean;
   rootMargin?: string;
 }) => {
   const [isInView, setIsInView] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (forceVisible) {
+      setIsInView(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -106,7 +113,7 @@ export const ScrollObserver = ({
     }
 
     return () => observer.disconnect();
-  }, [rootMargin]);
+  }, [forceVisible, rootMargin]);
 
   return <div ref={ref}>{isInView ? children : fallback}</div>;
 };

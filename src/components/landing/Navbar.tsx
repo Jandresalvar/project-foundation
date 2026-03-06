@@ -14,7 +14,7 @@ const Navbar = () => (
       <MiniNavbar
         brand={
           <img
-            src="/assets/logo-ea.svg"
+            src="/assets/logo-ea-white.svg"
             alt="EA Creatives"
             className={cn('block', 'h-14', 'w-auto', 'sm:h-[60px]')}
           />
