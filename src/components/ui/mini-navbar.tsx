@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -9,7 +9,7 @@ type NavItem = {
 };
 
 interface MiniNavbarProps {
-  brand: string;
+  brand: ReactNode;
   links: NavItem[];
   ctaLabel: string;
   ctaTo: string;
@@ -53,7 +53,7 @@ export function MiniNavbar({ brand, links, ctaLabel, ctaTo }: MiniNavbarProps) {
   return (
     <div
       className={cn(
-        "flex w-full flex-col px-5 py-3 backdrop-blur-xl sm:w-auto sm:min-w-[720px]",
+        "flex w-full flex-col px-5 py-2 backdrop-blur-xl sm:w-auto sm:min-w-[720px]",
         "border border-primary-foreground/22 bg-[hsl(var(--surface-core)/0.72)] shadow-[0_10px_36px_hsl(var(--surface-core)/0.42)]",
         "transition-[border-radius] duration-300 ease-in-out",
         shapeClass,

@@ -1,10 +1,11 @@
 import { FadeIn } from "@/lib/motion";
 
 const LOGOS = [
-  { id: 1, name: "Logo Cliente 1", src: "" },
-  { id: 2, name: "Logo Cliente 2", src: "" },
-  { id: 3, name: "Logo Cliente 3", src: "" },
-  { id: 4, name: "Logo Cliente 4", src: "" },
+  { id: 1, name: "AM Digital", src: "/assets/clients/logo-amdigital.svg" },
+  { id: 2, name: "Quintero", src: "/assets/clients/logo-quintero.svg" },
+  { id: 3, name: "Lemon", src: "/assets/clients/logo-lemon.svg" },
+  { id: 4, name: "Linné", src: "/assets/clients/logo-linne.svg" },
+  { id: 5, name: "Odontología", src: "/assets/clients/logo-odontologia.svg" },
 ];
 
 const LogoBanner = () => {
@@ -28,11 +29,7 @@ const LogoBanner = () => {
                 key={logo.id}
                 className="flex items-center justify-center h-12 md:h-16 w-32 md:w-40 text-muted-foreground font-semibold font-heading tracking-wider opacity-60 grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:text-foreground"
               >
-                {/* 
-                  TODO: Cuando tengas los logos reales, reemplaza el texto con la etiqueta img:
-                  <img src={logo.src} alt={logo.name} className="h-full w-auto object-contain" />
-                */}
-                {logo.name}
+                <img src={logo.src} alt={logo.name} className="h-full w-auto object-contain" />
               </div>
             ))}
           </div>

@@ -110,7 +110,7 @@ const AnimatedFeatureCard = forwardRef<HTMLDivElement, AnimatedFeatureCardProps>
           },
         }}
         className={cn(
-          "group relative flex h-full min-h-[392px] w-full flex-col overflow-hidden rounded-[30px] border border-white/60 bg-card/85 p-4 text-card-foreground backdrop-blur-md",
+          "group relative flex h-full min-h-[392px] w-full flex-col overflow-hidden rounded-[30px] border border-white/60 bg-card/85 p-4 text-card-foreground backdrop-blur-md transform-gpu will-change-transform [backface-visibility:hidden] [isolation:isolate]",
           className,
         )}
         {...props}
@@ -140,8 +140,8 @@ const AnimatedFeatureCard = forwardRef<HTMLDivElement, AnimatedFeatureCardProps>
             transition={springTransition}
             className={cn(
               isFramedVisual
-                ? "relative z-10 mx-1 mt-2 flex min-h-[188px] flex-1 items-center justify-center overflow-hidden rounded-[26px] border border-white/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]"
-                : "relative z-10 mt-2 flex min-h-[136px] items-center justify-center",
+                ? "relative z-10 mx-1 mt-2 flex min-h-[188px] flex-1 items-center justify-center overflow-hidden rounded-[26px] border border-white/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] transform-gpu [backface-visibility:hidden]"
+                : "relative z-10 mt-2 flex min-h-[136px] items-center justify-center transform-gpu [backface-visibility:hidden]",
               visualClassName,
             )}
             style={
@@ -201,7 +201,7 @@ const AnimatedFeatureCard = forwardRef<HTMLDivElement, AnimatedFeatureCardProps>
                 }
                 transition={springTransition}
                 className={cn(
-                  "relative z-10 flex items-center justify-center",
+                  "relative z-10 flex items-center justify-center transform-gpu [backface-visibility:hidden]",
                   isFramedVisual ? "h-full w-full" : "h-auto w-auto",
                 )}
               >
@@ -242,7 +242,7 @@ const AnimatedFeatureCard = forwardRef<HTMLDivElement, AnimatedFeatureCardProps>
           }}
           transition={springTransition}
           className={cn(
-            hasVisualStage ? "relative z-20 mt-4 rounded-[24px] border border-white/70 bg-background/78 p-5 shadow-[0_16px_36px_hsl(var(--foreground)/0.08)] backdrop-blur-xl" : "relative z-20 mt-2 rounded-[24px] border border-white/70 bg-background/78 p-5 shadow-[0_16px_36px_hsl(var(--foreground)/0.08)] backdrop-blur-xl",
+            hasVisualStage ? "relative z-20 mt-4 rounded-[24px] border border-white/70 bg-background/78 p-5 shadow-[0_16px_36px_hsl(var(--foreground)/0.08)] backdrop-blur-xl transform-gpu [backface-visibility:hidden]" : "relative z-20 mt-2 rounded-[24px] border border-white/70 bg-background/78 p-5 shadow-[0_16px_36px_hsl(var(--foreground)/0.08)] backdrop-blur-xl transform-gpu [backface-visibility:hidden]",
             contentClassName,
           )}
         >

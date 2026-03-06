@@ -64,6 +64,15 @@ const PowerTrioSection = () => (
               tone={s.tone}
               className="min-h-[420px]"
               placeholderLabel="Espacio visual del servicio"
+              visual={
+                s.title === "Atraemos Clientes Ideales" ? (
+                  <img
+                    src="/assets/features/feature-campanas-ads.png"
+                    alt="Vista previa de campañas publicitarias"
+                    className={cn('h-full', 'w-full', 'object-cover')}
+                  />
+                ) : undefined
+              }
               heading={
                 <span className={cn('flex', 'items-center', 'gap-3')}>
                   <span className={cn('flex', 'h-11', 'w-11', 'shrink-0', 'items-center', 'justify-center', 'rounded-2xl', 'bg-foreground/[0.04]', 'text-[var(--feature-chip-text)]', 'shadow-sm')}>
