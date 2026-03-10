@@ -1,5 +1,6 @@
 import { Check, X } from "lucide-react";
 import { FadeIn } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 
 interface ComparisonRow {
   feature: string;
@@ -8,7 +9,7 @@ interface ComparisonRow {
 }
 
 const ROWS: ComparisonRow[] = [
-  { feature: "Gestión de Meta & Google Ads", traditional: true, ea: true },
+  { feature: "Gestión de Meta Ads", traditional: true, ea: true },
   { feature: "Landing Pages que filtran curiosos", traditional: false, ea: true },
   { feature: "Atención inmediata por WhatsApp (Bot)", traditional: false, ea: true },
   { feature: "Sincronización de citas al calendario", traditional: false, ea: true },
@@ -18,33 +19,33 @@ const ROWS: ComparisonRow[] = [
 ];
 
 const FullFunnelComparison = () => (
-  <section id="comparativa" className="relative py-24 md:py-32 bg-surface-bridge">
-    <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-accent/8 to-transparent" />
-    <div className="max-w-4xl mx-auto px-6 lg:px-16">
-      <FadeIn className="text-center max-w-2xl mx-auto mb-14">
-        <p className="text-sm font-semibold text-accent tracking-wide uppercase mb-3">
+  <section id="comparativa" className={cn('relative', 'py-24', 'md:py-32', 'bg-surface-bridge')}>
+    <div aria-hidden className={cn('pointer-events-none', 'absolute', 'inset-x-0', 'top-0', 'h-20', 'bg-gradient-to-b', 'from-accent/8', 'to-transparent')} />
+    <div className={cn('max-w-4xl', 'mx-auto', 'px-6', 'lg:px-16')}>
+      <FadeIn className={cn('text-center', 'max-w-2xl', 'mx-auto', 'mb-14')}>
+        <p className={cn('text-sm', 'font-semibold', 'text-accent', 'tracking-wide', 'uppercase', 'mb-3')}>
           Full-Funnel vs Tradicional
         </p>
-        <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground">
+        <h2 className={cn('font-heading', 'text-3xl', 'sm:text-4xl', 'font-bold', 'text-foreground')}>
           ¿Por qué un sistema y no solo una agencia?
         </h2>
-        <p className="text-muted-foreground mt-4 text-lg leading-relaxed">
+        <p className={cn('text-muted-foreground', 'mt-4', 'text-lg', 'leading-relaxed')}>
           La diferencia entre comprar clics y comprar un proceso de ventas automático.
         </p>
       </FadeIn>
 
       <FadeIn delay={0.15}>
-        <div className="rounded-2xl border border-border/90 bg-card/95 shadow-sm overflow-hidden">
+        <div className={cn('rounded-2xl', 'border', 'border-border/90', 'bg-card/95', 'shadow-sm', 'overflow-hidden')}>
           {/* Header */}
-          <div className="grid grid-cols-[1fr_auto_auto] sm:grid-cols-[1fr_140px_140px] text-center border-b border-border">
-            <div className="p-4 text-left" />
-            <div className="p-4 border-l border-border">
-              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+          <div className={cn('grid', 'grid-cols-[1fr_auto_auto]', 'sm:grid-cols-[1fr_140px_140px]', 'text-center', 'border-b', 'border-border')}>
+            <div className={cn('p-4', 'text-left')} />
+            <div className={cn('p-4', 'border-l', 'border-border')}>
+              <p className={cn('text-xs', 'font-semibold', 'text-muted-foreground', 'uppercase', 'tracking-wide')}>
                 Agencia Tradicional
               </p>
             </div>
-            <div className="p-4 border-l border-border bg-accent/8">
-              <p className="text-xs font-semibold text-accent uppercase tracking-wide">
+            <div className={cn('p-4', 'border-l', 'border-border', 'bg-accent/8')}>
+              <p className={cn('text-xs', 'font-semibold', 'text-accent', 'uppercase', 'tracking-wide')}>
                 EA Creatives
               </p>
             </div>
@@ -58,27 +59,27 @@ const FullFunnelComparison = () => (
                 i < ROWS.length - 1 ? "border-b border-border" : ""
               }`}
             >
-              <div className="p-4 text-left text-sm text-foreground font-medium">
+              <div className={cn('p-4', 'text-left', 'text-sm', 'text-foreground', 'font-medium')}>
                 {row.feature}
               </div>
               
               {/* Celda Agencia Tradicional */}
-              <div className="p-4 border-l border-border flex items-center justify-center">
+              <div className={cn('p-4', 'border-l', 'border-border', 'flex', 'items-center', 'justify-center')}>
                 {row.feature === "Tiempo que debes invertir" ? (
-                  <span className="text-xs font-bold text-destructive">MUCHO</span>
+                  <span className={cn('text-xs', 'font-bold', 'text-destructive')}>MUCHO</span>
                 ) : row.traditional ? (
-                  <Check className="w-4 h-4 text-success" />
+                  <Check className={cn('w-4', 'h-4', 'text-success')} />
                 ) : (
-                  <X className="w-4 h-4 text-muted-foreground/40" />
+                  <X className={cn('w-4', 'h-4', 'text-muted-foreground/40')} />
                 )}
               </div>
               
               {/* Celda EA Creatives */}
-              <div className="p-4 border-l border-border bg-accent/8 flex items-center justify-center">
+              <div className={cn('p-4', 'border-l', 'border-border', 'bg-accent/8', 'flex', 'items-center', 'justify-center')}>
                 {row.feature === "Tiempo que debes invertir" ? (
-                  <span className="text-xs font-bold text-success">MÍNIMO</span>
+                  <span className={cn('text-xs', 'font-bold', 'text-success')}>MÍNIMO</span>
                 ) : (
-                  <Check className="w-4 h-4 text-success" />
+                  <Check className={cn('w-4', 'h-4', 'text-success')} />
                 )}
               </div>
             </div>
