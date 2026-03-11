@@ -1,5 +1,3 @@
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/lib/motion";
 import { Link } from "react-router-dom";
 
@@ -21,9 +19,15 @@ const FinalCTA = () => (
           <p className="text-primary-foreground/80 text-lg leading-relaxed max-w-xl mx-auto">
             Agenda tu auditoría de automatización gratuita y descubre cómo convertir cada peso invertido en crecimiento real.
           </p>
-          <Button asChild size="lg" className="gap-2 bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-            <Link to="/consultoria">Empezar ahora <ArrowRight className="w-4 h-4" /></Link>
-          </Button>
+          <div className="group relative inline-block">
+            <div className="pointer-events-none absolute inset-0 -m-2 rounded-full bg-white opacity-35 blur-lg transition-all duration-300 ease-out group-hover:-m-3 group-hover:opacity-55 group-hover:blur-xl" />
+            <Link
+              to="/consultoria"
+              className="relative z-10 inline-flex items-center rounded-full bg-gradient-to-br from-zinc-100 to-zinc-300 px-5 py-3 text-base font-semibold text-zinc-900 transition-all duration-200 hover:from-zinc-200 hover:to-zinc-400"
+            >
+              Empezar ahora
+            </Link>
+          </div>
         </div>
       </FadeIn>
     </div>

@@ -44,9 +44,16 @@ const HeroSection = () => (
 
           <FadeIn delay={0.3}>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="gap-2">
-                <Link to="/consultoria">Empezar ahora <ArrowRight className="w-4 h-4" /></Link>
-              </Button>
+              <div className="group relative inline-flex">
+                <div className="pointer-events-none absolute inset-0 -m-2 rounded-full bg-white opacity-35 blur-lg transition-all duration-300 ease-out group-hover:-m-3 group-hover:opacity-60 group-hover:blur-2xl" />
+                <Link
+                  to="/consultoria"
+                  className="relative z-10 inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-[#1e2a4d] via-[#19233f] to-[#131c33] px-5 py-3 text-base font-semibold text-white shadow-[0_18px_45px_rgba(19,31,51,0.45)] transition-all duration-200 ease-out hover:from-[#27375f] hover:via-[#1f2e50] hover:to-[#19263f] hover:-translate-y-0.5 hover:shadow-[0_22px_55px_rgba(31,46,79,0.55)] active:translate-y-0"
+                >
+                  Empezar ahora
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
               <Button size="lg" variant="outline" className="gap-2" asChild>
                 <a href="#servicios">Ver servicios</a>
               </Button>
