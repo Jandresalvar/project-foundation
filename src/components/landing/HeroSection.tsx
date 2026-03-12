@@ -54,9 +54,6 @@ const HeroSection = () => (
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-              <Button size="lg" variant="outline" className="gap-2" asChild>
-                <a href="#servicios">Ver servicios</a>
-              </Button>
             </div>
           </FadeIn>
         </div>

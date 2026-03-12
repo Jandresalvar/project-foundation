@@ -37,17 +37,19 @@ const FullFunnelComparison = () => (
       <FadeIn delay={0.15}>
         <div className={cn('rounded-2xl', 'border', 'border-border/90', 'bg-card/95', 'shadow-sm', 'overflow-hidden')}>
           {/* Header */}
-          <div className={cn('grid', 'grid-cols-[1fr_auto_auto]', 'sm:grid-cols-[1fr_140px_140px]', 'text-center', 'border-b', 'border-border')}>
-            <div className={cn('p-4', 'text-left')} />
-            <div className={cn('p-4', 'border-l', 'border-border')}>
-              <p className={cn('text-xs', 'font-semibold', 'text-muted-foreground', 'uppercase', 'tracking-wide')}>
+          <div className={cn('grid', 'grid-cols-[minmax(0,1fr)_104px_104px]', 'sm:grid-cols-[1fr_140px_140px]', 'md:grid-cols-[1fr_150px_150px]', 'text-center', 'border-b', 'border-border')}>
+            <div className={cn('p-3', 'sm:p-4', 'text-left')} />
+            <div className={cn('p-3', 'sm:p-4', 'border-l', 'border-border', 'flex', 'items-center', 'justify-center', 'text-center')}>
+              <p className={cn('text-[0.66rem]', 'sm:text-[0.7rem]', 'md:text-[0.72rem]', 'font-semibold', 'text-muted-foreground', 'uppercase', 'tracking-wide', 'leading-tight')}>
                 Agencia Tradicional
               </p>
             </div>
-            <div className={cn('p-4', 'border-l', 'border-border', 'bg-accent/8')}>
-              <p className={cn('text-xs', 'font-semibold', 'text-accent', 'uppercase', 'tracking-wide')}>
-                EA Creatives
-              </p>
+            <div className={cn('p-3', 'sm:p-4', 'border-l', 'border-border', 'bg-accent/8', 'flex', 'items-center', 'justify-center')}>
+              <img
+                src="/assets/logo-ea.svg"
+                alt="EA Creatives"
+                className={cn('mx-auto', 'h-10', 'w-auto', 'sm:h-12', 'object-contain', 'contrast-125')}
+              />
             </div>
           </div>
 
@@ -55,16 +57,16 @@ const FullFunnelComparison = () => (
           {ROWS.map((row, i) => (
             <div
               key={row.feature}
-              className={`grid grid-cols-[1fr_auto_auto] sm:grid-cols-[1fr_140px_140px] text-center ${
+              className={`grid grid-cols-[minmax(0,1fr)_104px_104px] sm:grid-cols-[1fr_140px_140px] md:grid-cols-[1fr_150px_150px] text-center ${
                 i < ROWS.length - 1 ? "border-b border-border" : ""
               }`}
             >
-              <div className={cn('p-4', 'text-left', 'text-sm', 'text-foreground', 'font-medium')}>
+              <div className={cn('p-3', 'sm:p-4', 'text-left', 'text-[0.95rem]', 'leading-snug', 'sm:text-sm', 'text-foreground', 'font-medium')}>
                 {row.feature}
               </div>
               
               {/* Celda Agencia Tradicional */}
-              <div className={cn('p-4', 'border-l', 'border-border', 'flex', 'items-center', 'justify-center')}>
+              <div className={cn('p-3', 'sm:p-4', 'border-l', 'border-border', 'flex', 'items-center', 'justify-center')}>
                 {row.feature === "Tiempo que debes invertir" ? (
                   <span className={cn('text-xs', 'font-bold', 'text-destructive')}>MUCHO</span>
                 ) : row.traditional ? (
@@ -75,7 +77,7 @@ const FullFunnelComparison = () => (
               </div>
               
               {/* Celda EA Creatives */}
-              <div className={cn('p-4', 'border-l', 'border-border', 'bg-accent/8', 'flex', 'items-center', 'justify-center')}>
+              <div className={cn('p-3', 'sm:p-4', 'border-l', 'border-border', 'bg-accent/8', 'flex', 'items-center', 'justify-center')}>
                 {row.feature === "Tiempo que debes invertir" ? (
                   <span className={cn('text-xs', 'font-bold', 'text-success')}>MÍNIMO</span>
                 ) : (

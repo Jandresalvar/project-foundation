@@ -3,6 +3,7 @@ import { Mail, LayoutDashboard, PieChart, PenSquare, MonitorSmartphone } from "l
 import { StaggerContainer, StaggerItem, FadeIn } from "@/lib/motion";
 import { AnimatedFeatureCard, type AnimatedFeatureCardTone } from "@/components/ui/animated-feature-card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
 
 interface EcoCard {
   icon: React.ReactNode;
@@ -14,7 +15,7 @@ interface EcoCard {
 
 const CARDS: EcoCard[] = [
   {
-    icon: <Mail className="w-5 h-5" />,
+    icon: <Mail className={cn('w-5', 'h-5')} />,
     title: "Seguimiento Automático",
     tagline: "Que ningún cliente se enfríe",
     description:
@@ -22,7 +23,7 @@ const CARDS: EcoCard[] = [
     tone: "accent",
   },
   {
-    icon: <LayoutDashboard className="w-5 h-5" />,
+    icon: <LayoutDashboard className={cn('w-5', 'h-5')} />,
     title: "Gestión de Pacientes/Clientes",
     tagline: "Adiós al desorden y los post-its",
     description:
@@ -30,7 +31,7 @@ const CARDS: EcoCard[] = [
     tone: "primary",
   },
   {
-    icon: <PieChart className="w-5 h-5" />,
+    icon: <PieChart className={cn('w-5', 'h-5')} />,
     title: "Control y Transparencia",
     tagline: "Decisiones basadas en números reales",
     description:
@@ -38,7 +39,7 @@ const CARDS: EcoCard[] = [
     tone: "success",
   },
   {
-    icon: <PenSquare className="w-5 h-5" />,
+    icon: <PenSquare className={cn('w-5', 'h-5')} />,
     title: "Contenido para Redes Sociales",
     tagline: "Tu marca viva, activa y visible",
     description:
@@ -46,8 +47,8 @@ const CARDS: EcoCard[] = [
     tone: "accent",
   },
   {
-    icon: <MonitorSmartphone className="w-5 h-5" />,
-    title: "Sitio Web Corporativo Funcional",
+    icon: <MonitorSmartphone className={cn('w-5', 'h-5')} />,
+    title: "Sitio Web Corporativos",
     tagline: "No es una landing rápida: es tu casa digital",
     description:
       "Diseñamos webs completas para tu negocio, con estructura profesional, servicios claros y navegación pensada para informar, posicionar y convertir.",
@@ -84,8 +85,8 @@ const GrowthEcosystemSection = () => {
       className="min-h-[420px]"
       placeholderLabel="Mockup del sistema"
       heading={
-        <span className="flex items-center gap-3">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-foreground/[0.04] text-[var(--feature-chip-text)] shadow-sm">
+        <span className={cn('flex', 'items-center', 'gap-3')}>
+          <span className={cn('flex', 'h-10', 'w-10', 'shrink-0', 'items-center', 'justify-center', 'rounded-2xl', 'bg-foreground/[0.04]', 'text-[var(--feature-chip-text)]', 'shadow-sm')}>
             {c.icon}
           </span>
           <span>{c.title}</span>
@@ -94,7 +95,7 @@ const GrowthEcosystemSection = () => {
       description={c.description}
       details={
         <p
-          className="rounded-2xl border px-4 py-3 text-sm font-medium italic [border-color:var(--feature-stage-border)] [background:var(--feature-chip-bg)] [color:var(--feature-chip-text)]"
+          className={cn('rounded-2xl', 'border', 'px-4', 'py-3', 'text-sm', 'font-medium', 'italic', '[border-color:var(--feature-stage-border)]', '[background:var(--feature-chip-bg)]', '[color:var(--feature-chip-text)]')}
         >
           “{c.tagline}”
         </p>
@@ -103,36 +104,36 @@ const GrowthEcosystemSection = () => {
   );
 
   return (
-    <section className="relative py-24 md:py-32 bg-surface-complement">
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-accent/10 to-transparent" />
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
-        <FadeIn className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-sm font-semibold text-accent tracking-wide uppercase mb-3">
+    <section className={cn('relative', 'py-24', 'md:py-32', 'bg-surface-bridge', 'section-chromatic-wash')}>
+      <div aria-hidden className={cn('pointer-events-none', 'absolute', 'inset-x-0', 'top-0', 'h-20', 'bg-gradient-to-b', 'from-accent/10', 'to-transparent')} />
+      <div className={cn('max-w-7xl', 'mx-auto', 'px-6', 'lg:px-16')}>
+        <FadeIn className={cn('text-center', 'max-w-2xl', 'mx-auto', 'mb-16')}>
+          <p className={cn('text-sm', 'font-semibold', 'text-accent', 'tracking-wide', 'uppercase', 'mb-3')}>
             Ecosistema de Crecimiento
           </p>
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground">
+          <h2 className={cn('font-heading', 'text-3xl', 'sm:text-4xl', 'font-bold', 'text-foreground')}>
             Cierra el círculo de tu crecimiento digital
           </h2>
-          <p className="text-muted-foreground mt-4 text-lg leading-relaxed">
+          <p className={cn('text-muted-foreground', 'mt-4', 'text-lg', 'leading-relaxed')}>
             Servicios complementarios para posicionar tu marca, madurar tus leads y convertirlos en clientes recurrentes.
           </p>
         </FadeIn>
-        <Carousel opts={{ align: "start", loop: false }} className="w-full" setApi={setApi}>
-          <CarouselContent>
+        <Carousel opts={{ align: "start", loop: false }} className={cn('w-full', 'bg-transparent')} setApi={setApi}>
+          <CarouselContent className={cn('bg-transparent')}>
             {CARDS.map((c) => (
-              <CarouselItem key={c.title} className="basis-full sm:basis-1/2 lg:basis-1/3 px-1 sm:px-2 lg:px-3">
+              <CarouselItem key={c.title} className={cn('basis-full', 'sm:basis-1/2', 'lg:basis-1/3', 'bg-transparent')}>
                 <StaggerContainer staggerDelay={0.05}>
                   <StaggerItem>{renderCard(c)}</StaggerItem>
                 </StaggerContainer>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-2 top-1/2 h-9 w-9 -translate-y-1/2 border-border/60 bg-background/85" />
-          <CarouselNext className="right-2 top-1/2 h-9 w-9 -translate-y-1/2 border-border/60 bg-background/85" />
+          <CarouselPrevious className={cn('left-2', 'top-1/2', 'h-9', 'w-9', '-translate-y-1/2', 'border-border/60', 'bg-white/85')} />
+          <CarouselNext className={cn('right-2', 'top-1/2', 'h-9', 'w-9', '-translate-y-1/2', 'border-border/60', 'bg-white/85')} />
         </Carousel>
 
         {count > 1 && (
-          <div className="mt-6 flex items-center justify-center gap-2">
+          <div className={cn('mt-6', 'flex', 'items-center', 'justify-center', 'gap-2')}>
             {Array.from({ length: count }).map((_, idx) => (
               <button
                 key={`dot-${idx}`}

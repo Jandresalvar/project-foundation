@@ -57,7 +57,7 @@ const PowerTrioSection = () => (
         </p>
       </FadeIn>
 
-      <StaggerContainer className={cn('grid', 'md:grid-cols-3', 'gap-6', 'lg:gap-8')} staggerDelay={0.15}>
+      <StaggerContainer className={cn('grid', 'md:grid-cols-2', 'lg:grid-cols-3', 'gap-6', 'lg:gap-8')} staggerDelay={0.15}>
         {SERVICES.map((s) => (
           <StaggerItem key={s.title}>
             <AnimatedFeatureCard
@@ -74,11 +74,11 @@ const PowerTrioSection = () => (
                 ) : undefined
               }
               heading={
-                <span className={cn('flex', 'items-center', 'gap-3')}>
+                <span className={cn('flex', 'items-start', 'gap-3')}>
                   <span className={cn('flex', 'h-11', 'w-11', 'shrink-0', 'items-center', 'justify-center', 'rounded-2xl', 'bg-foreground/[0.04]', 'text-[var(--feature-chip-text)]', 'shadow-sm')}>
                     {s.icon}
                   </span>
-                  <span>{s.title}</span>
+                  <span className={cn('min-w-0', 'leading-tight')}>{s.title}</span>
                 </span>
               }
               description={s.description}

@@ -252,7 +252,7 @@ const AnimatedFeatureCard = forwardRef<HTMLDivElement, AnimatedFeatureCardProps>
                 {eyebrow}
               </div>
             ) : null}
-            <h3 className="font-heading text-[1.35rem] font-bold leading-tight text-foreground sm:text-[1.45rem]">
+            <h3 className="font-heading text-[1.2rem] font-bold leading-tight text-foreground sm:text-[1.3rem] lg:text-[1.45rem]">
               {heading}
             </h3>
             {description ? (
