@@ -48,7 +48,7 @@ const FullFunnelComparison = () => (
               <img
                 src="/assets/logo-ea.svg"
                 alt="EA Creatives"
-                className={cn('mx-auto', 'h-10', 'w-auto', 'sm:h-12', 'object-contain', 'contrast-125')}
+                className={cn('mx-auto', 'h-12', 'w-auto', 'sm:h-14', 'object-contain', 'contrast-125')}
               />
             </div>
           </div>
