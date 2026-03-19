@@ -71,6 +71,18 @@ const PowerTrioSection = () => (
                     alt="Vista previa de campañas publicitarias"
                     className={cn('h-full', 'w-full', 'object-cover')}
                   />
+                ) : s.title === "Filtramos y Calificamos" ? (
+                  <img
+                    src="/assets/features/feature-captacion.png"
+                    alt="Vista previa de captación y calificación"
+                    className={cn('h-full', 'w-full', 'object-cover')}
+                  />
+                ) : s.title === "Tu Secretaria Virtual 24/7" ? (
+                  <img
+                    src="/assets/features/feature-whatsapp-ai.png"
+                    alt="Vista previa de asistente virtual en WhatsApp"
+                    className={cn('h-full', 'w-full', 'object-cover')}
+                  />
                 ) : undefined
               }
               heading={

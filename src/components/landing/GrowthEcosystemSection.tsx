@@ -84,6 +84,39 @@ const GrowthEcosystemSection = () => {
       tone={c.tone}
       className="min-h-[420px]"
       placeholderLabel="Mockup del sistema"
+      visual={
+        c.title === "Seguimiento Automático" ? (
+          <img
+            src="/assets/features/feature-email-marketing.png"
+            alt="Vista previa de seguimiento automático"
+            className={cn('h-full', 'w-full', 'object-cover')}
+          />
+        ) : c.title === "Gestión de Pacientes/Clientes" ? (
+          <img
+            src="/assets/features/feature-monday.png"
+            alt="Vista previa de gestión de pacientes y clientes"
+            className={cn('h-full', 'w-full', 'object-cover')}
+          />
+        ) : c.title === "Control y Transparencia" ? (
+          <img
+            src="/assets/features/feature-bi.png"
+            alt="Vista previa de control y transparencia"
+            className={cn('h-full', 'w-full', 'object-cover')}
+          />
+        ) : c.title === "Contenido para Redes Sociales" ? (
+          <img
+            src="/assets/features/feature-rrss.png"
+            alt="Vista previa de contenido para redes sociales"
+            className={cn('h-full', 'w-full', 'object-cover')}
+          />
+        ) : c.title === "Sitio Web Corporativos" ? (
+          <img
+            src="/assets/features/feature-paginas-web.png"
+            alt="Vista previa de sitio web corporativo"
+            className={cn('h-full', 'w-full', 'object-cover')}
+          />
+        ) : undefined
+      }
       heading={
         <span className={cn('flex', 'items-center', 'gap-3')}>
           <span className={cn('flex', 'h-10', 'w-10', 'shrink-0', 'items-center', 'justify-center', 'rounded-2xl', 'bg-foreground/[0.04]', 'text-[var(--feature-chip-text)]', 'shadow-sm')}>
