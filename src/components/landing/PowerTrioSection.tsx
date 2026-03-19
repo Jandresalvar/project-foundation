@@ -46,9 +46,6 @@ const PowerTrioSection = () => (
     <div aria-hidden className={cn('pointer-events-none', 'absolute', 'bottom-0', 'left-10', 'h-48', 'w-48', 'rounded-full', 'bg-success/12', 'blur-3xl')} />
     <div className={cn('relative', 'max-w-7xl', 'mx-auto', 'px-6', 'lg:px-16')}>
       <FadeIn className={cn('text-center', 'max-w-2xl', 'mx-auto', 'mb-16')}>
-        <p className={cn('text-sm', 'font-semibold', 'text-accent', 'tracking-wide', 'uppercase', 'mb-3')}>
-          Servicios Core
-        </p>
         <h2 className={cn('font-heading', 'text-3xl', 'sm:text-4xl', 'font-bold', 'text-primary-foreground')}>
           El trío que impulsa tu crecimiento
         </h2>

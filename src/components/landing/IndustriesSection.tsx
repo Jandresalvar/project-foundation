@@ -44,9 +44,6 @@ const IndustriesSection = () => (
     <div aria-hidden className={cn('pointer-events-none', 'absolute', 'inset-x-0', 'top-0', 'h-24', 'bg-gradient-to-b', 'from-accent/8', 'to-transparent')} />
     <div className={cn('max-w-7xl', 'mx-auto', 'px-6', 'lg:px-16')}>
       <FadeIn className={cn('text-center', 'max-w-2xl', 'mx-auto', 'mb-16')}>
-        <p className={cn('text-sm', 'font-semibold', 'text-accent', 'tracking-wide', 'uppercase', 'mb-3')}>
-          Casos de Uso
-        </p>
         <h2 className={cn('font-heading', 'text-3xl', 'sm:text-4xl', 'font-bold', 'text-foreground')}>
           Soluciones comprobadas que se adaptan a tu modelo de negocio
         </h2>
@@ -63,8 +60,8 @@ const IndustriesSection = () => (
               className="min-h-[336px]"
               contentClassName="border-0 bg-transparent p-0 shadow-none backdrop-blur-0"
               heading={
-                <span className="flex items-center gap-3">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-foreground/[0.04] text-[var(--feature-chip-text)] shadow-sm">
+                <span className={cn('flex', 'items-center', 'gap-3')}>
+                  <span className={cn('flex', 'h-11', 'w-11', 'shrink-0', 'items-center', 'justify-center', 'rounded-2xl', 'bg-foreground/[0.04]', 'text-[var(--feature-chip-text)]', 'shadow-sm')}>
                     {ind.icon}
                   </span>
                   <span>{ind.title}</span>
@@ -86,12 +83,12 @@ const IndustriesSection = () => (
                     rest: { y: 0, scale: 1, opacity: 0.96 },
                     hover: { y: 10, scale: 1, opacity: 1 },
                   }}
-                  className="rounded-[24px] border p-4 text-left shadow-[0_18px_36px_hsl(var(--foreground)/0.1)] [border-color:var(--feature-stage-border)] [background:var(--feature-chip-bg)] [color:var(--feature-chip-text)]"
+                  className={cn('rounded-[24px]', 'border', 'p-4', 'text-left', 'shadow-[0_18px_36px_hsl(var(--foreground)/0.1)]', '[border-color:var(--feature-stage-border)]', '[background:var(--feature-chip-bg)]', '[color:var(--feature-chip-text)]')}
                 >
-                  <p className="mb-2 text-[0.66rem] font-semibold uppercase tracking-[0.22em] opacity-70">
+                  <p className={cn('mb-2', 'text-[0.66rem]', 'font-semibold', 'uppercase', 'tracking-[0.22em]', 'opacity-70')}>
                     Nuestra solución
                   </p>
-                  <p className="text-sm font-medium leading-relaxed">{ind.solution}</p>
+                  <p className={cn('text-sm', 'font-medium', 'leading-relaxed')}>{ind.solution}</p>
                 </motion.div>
               }
             />

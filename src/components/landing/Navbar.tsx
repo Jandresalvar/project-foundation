@@ -20,8 +20,8 @@ const Navbar = () => (
           />
         }
         links={NAV_LINKS.map((item) => ({ ...item }))}
-        ctaLabel="Agendar Consultoría"
-        ctaTo="/consultoria"
+        ctaLabel="Empezar Ahora"
+        ctaTo="#cta-final-form"
       />
     </div>
   </header>

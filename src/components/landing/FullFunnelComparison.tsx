@@ -23,9 +23,6 @@ const FullFunnelComparison = () => (
     <div aria-hidden className={cn('pointer-events-none', 'absolute', 'inset-x-0', 'top-0', 'h-20', 'bg-gradient-to-b', 'from-accent/8', 'to-transparent')} />
     <div className={cn('max-w-4xl', 'mx-auto', 'px-6', 'lg:px-16')}>
       <FadeIn className={cn('text-center', 'max-w-2xl', 'mx-auto', 'mb-14')}>
-        <p className={cn('text-sm', 'font-semibold', 'text-accent', 'tracking-wide', 'uppercase', 'mb-3')}>
-          Full-Funnel vs Tradicional
-        </p>
         <h2 className={cn('font-heading', 'text-3xl', 'sm:text-4xl', 'font-bold', 'text-foreground')}>
           ¿Por qué un sistema y no solo una agencia?
         </h2>

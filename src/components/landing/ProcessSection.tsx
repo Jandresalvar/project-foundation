@@ -45,9 +45,6 @@ const ProcessSection = () => (
     <div aria-hidden className={cn('pointer-events-none', 'absolute', 'inset-x-0', 'top-0', 'h-20', 'bg-gradient-to-b', 'from-accent/10', 'to-transparent')} />
     <div className={cn('max-w-7xl', 'mx-auto', 'px-6', 'lg:px-16')}>
       <FadeIn className={cn('text-center', 'max-w-2xl', 'mx-auto', 'mb-16')}>
-        <p className={cn('text-sm', 'font-semibold', 'text-accent', 'tracking-wide', 'uppercase', 'mb-3')}>
-          Nuestra Metodología
-        </p>
         <h2 className={cn('font-heading', 'text-3xl', 'sm:text-4xl', 'font-bold', 'text-foreground')}>
           3 pasos hacia el crecimiento
         </h2>
