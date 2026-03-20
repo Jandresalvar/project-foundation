@@ -1,5 +1,7 @@
-import { lazy, Suspense, useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
+import FinalCTA from "@/components/landing/FinalCTA";
 import { ScrollObserver } from "@/lib/motion";
 
 const HeroSection = lazy(() => import("@/components/landing/HeroSection"));
@@ -9,7 +11,6 @@ const GrowthEcosystemSection = lazy(() => import("@/components/landing/GrowthEco
 const FullFunnelComparison = lazy(() => import("@/components/landing/FullFunnelComparison"));
 const ProcessSection = lazy(() => import("@/components/landing/ProcessSection"));
 const LogoBanner = lazy(() => import("@/components/landing/LogoBanner"));
-const FinalCTA = lazy(() => import("@/components/landing/FinalCTA"));
 const Footer = lazy(() => import("@/components/landing/Footer"));
 
 const SectionFallback = () => (
@@ -17,20 +18,11 @@ const SectionFallback = () => (
 );
 
 const HASH_SECTION_ORDER = ["servicios", "usos", "comparativa", "proceso"] as const;
+const CTA_HASHES = new Set(["cta-final", "cta-final-form"]);
 
 const Index = () => {
-  const [hash, setHash] = useState(() => window.location.hash.replace("#", ""));
-
-  useEffect(() => {
-    const syncHash = () => {
-      setHash(window.location.hash.replace("#", ""));
-    };
-
-    syncHash();
-    window.addEventListener("hashchange", syncHash);
-
-    return () => window.removeEventListener("hashchange", syncHash);
-  }, []);
+  const location = useLocation();
+  const hash = location.hash.replace("#", "");
 
   const forcedSections = useMemo(() => {
     const targetIndex = HASH_SECTION_ORDER.indexOf(hash as (typeof HASH_SECTION_ORDER)[number]);
@@ -47,27 +39,44 @@ const Index = () => {
       return;
     }
 
-    let frameId = 0;
-    let attempts = 0;
-    const maxAttempts = 40;
+    const isCtaHash = CTA_HASHES.has(hash);
+    const maxWaitMs = 6000;
+    const retryMs = 120;
+    const settleAfterFoundMs = isCtaHash ? 1800 : 0;
+    const startAt = Date.now();
+    let firstFoundAt: number | null = null;
 
-    const scrollToHashTarget = () => {
+    const tryScroll = () => {
       const element = document.getElementById(hash);
 
       if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-        return;
+        const isFirstMatch = firstFoundAt === null;
+
+        if (isFirstMatch) {
+          firstFoundAt = Date.now();
+        }
+
+        element.scrollIntoView({
+          behavior: isFirstMatch ? "smooth" : "auto",
+          block: "start",
+        });
+        return true;
       }
 
-      if (attempts < maxAttempts) {
-        attempts += 1;
-        frameId = window.requestAnimationFrame(scrollToHashTarget);
-      }
+      return false;
     };
 
-    frameId = window.requestAnimationFrame(scrollToHashTarget);
+    const intervalId = window.setInterval(() => {
+      const found = tryScroll();
+      const timedOut = Date.now() - startAt >= maxWaitMs;
+      const settled = firstFoundAt !== null && Date.now() - firstFoundAt >= settleAfterFoundMs;
 
-    return () => window.cancelAnimationFrame(frameId);
+      if ((found && settled) || timedOut) {
+        window.clearInterval(intervalId);
+      }
+    }, retryMs);
+
+    return () => window.clearInterval(intervalId);
   }, [hash]);
 
   return (
@@ -114,10 +123,8 @@ const Index = () => {
         </Suspense>
       </ScrollObserver>
 
-      <ScrollObserver fallback={<SectionFallback />}>
-        <Suspense fallback={<SectionFallback />}>
-          <FinalCTA />
-        </Suspense>
+      <ScrollObserver fallback={<SectionFallback />} forceVisible={CTA_HASHES.has(hash)}>
+        <FinalCTA />
       </ScrollObserver>
 
       <ScrollObserver fallback={<SectionFallback />}>

@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 import { FadeIn } from "@/lib/motion";
 
 const FinalCTA = () => (
-  <section id="cta-final" className="relative overflow-hidden py-24 md:py-32 bg-surface-cta">
+  <section id="cta-final" className="relative overflow-hidden py-24 md:py-32 bg-surface-cta scroll-mt-32">
     <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-accent/12 to-transparent" />
     <div aria-hidden className="pointer-events-none absolute -top-20 right-8 h-56 w-56 rounded-full bg-accent/10 blur-3xl" />
     <div aria-hidden className="pointer-events-none absolute bottom-0 left-10 h-48 w-48 rounded-full bg-accent/8 blur-3xl" />
@@ -70,7 +70,7 @@ const FinalCTA = () => (
           <div className="group relative inline-block">
             <div className="pointer-events-none absolute inset-0 -m-2 rounded-full bg-white opacity-35 blur-lg transition-all duration-300 ease-out group-hover:-m-3 group-hover:opacity-55 group-hover:blur-xl" />
             <a
-              href="#cta-final-form"
+              href="#cta-final"
               className="relative z-10 inline-flex items-center rounded-full bg-gradient-to-br from-zinc-100 to-zinc-300 px-5 py-3 text-base font-semibold text-zinc-900 transition-all duration-200 hover:from-zinc-200 hover:to-zinc-400"
             >
               Empezar ahora

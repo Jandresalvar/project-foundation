@@ -21,7 +21,7 @@ const Navbar = () => (
         }
         links={NAV_LINKS.map((item) => ({ ...item }))}
         ctaLabel="Empezar Ahora"
-        ctaTo="#cta-final-form"
+        ctaTo="#cta-final"
       />
     </div>
   </header>
