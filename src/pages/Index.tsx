@@ -1,10 +1,9 @@
 import { lazy, Suspense, useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
+import HeroSection from "@/components/landing/HeroSection";
 import FinalCTA from "@/components/landing/FinalCTA";
 import { ScrollObserver } from "@/lib/motion";
-
-const HeroSection = lazy(() => import("@/components/landing/HeroSection"));
 const IndustriesSection = lazy(() => import("@/components/landing/IndustriesSection"));
 const PowerTrioSection = lazy(() => import("@/components/landing/PowerTrioSection"));
 const GrowthEcosystemSection = lazy(() => import("@/components/landing/GrowthEcosystemSection"));
@@ -83,9 +82,7 @@ const Index = () => {
     <main className="relative isolate min-h-screen bg-background">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 section-chromatic-wash" />
       <Navbar />
-      <Suspense fallback={<SectionFallback />}>
-        <HeroSection />
-      </Suspense>
+      <HeroSection />
 
       <ScrollObserver fallback={<SectionFallback />} forceVisible={forcedSections.has("servicios")}>
         <Suspense fallback={<SectionFallback />}>

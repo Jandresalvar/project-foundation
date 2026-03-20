@@ -16,6 +16,8 @@ const Navbar = () => (
           <img
             src="/assets/logo-ea-white.svg"
             alt="EA Creatives"
+            width="140"
+            height="56"
             className={cn('block', 'h-14', 'w-auto', 'sm:h-[60px]')}
           />
         }
