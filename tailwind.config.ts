@@ -19,6 +19,10 @@ export default {
         heading: ['Plus Jakarta Sans', 'sans-serif'],
       },
       colors: {
+        dark: {
+          DEFAULT: "hsl(var(--dark) / <alpha-value>)",
+          foreground: "hsl(var(--dark-foreground) / <alpha-value>)",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
