@@ -25,7 +25,7 @@
 @font-face {
   font-family: 'Plus Jakarta Sans';
   font-style: normal;
-  font-weight: 500 800;
+  font-weight: 500 700;
   font-display: swap;
   src: url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -33,37 +33,44 @@
 @font-face {
   font-family: 'Plus Jakarta Sans';
   font-style: normal;
-  font-weight: 500 800;
+  font-weight: 500 700;
   font-display: swap;
   src: url('/fonts/plus-jakarta-sans-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
-/*
- * Paleta 2026 — editorial-minimalista (ver DESIGN.md).
- * Fondo crema cálido, texto casi negro, azul EA como acento puntual.
- */
 @layer base {
   :root {
-    --background: 40 25% 97%;
-    --foreground: 220 15% 10%;
+    --background: 210 40% 98%;
+    --foreground: 215 28% 17%;
+
+    --surface-primary: 213 65% 96%;
+    --surface-accent: 213 100% 97%;
+    --surface-success: 156 54% 96%;
+    --surface-neutral: 210 32% 95%;
+    --surface-frame: 217 44% 17%;
+    --surface-core: 217 40% 20%;
+    --surface-complement: 216 58% 93%;
+    --surface-bridge: 214 72% 95%;
+    --surface-cta: 214 62% 95%;
+    --surface-cta-card: 217 36% 21%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 15% 10%;
+    --card-foreground: 215 28% 17%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 10%;
+    --popover-foreground: 215 28% 17%;
 
-    --primary: 220 15% 10%;
-    --primary-foreground: 40 25% 97%;
+    --primary: 215 28% 17%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 40 15% 92%;
-    --secondary-foreground: 220 15% 10%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 215 28% 17%;
 
-    --muted: 40 15% 92%;
-    --muted-foreground: 220 10% 42%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 20% 38%;
 
-    --accent: 217 91% 55%;
+    --accent: 217 91% 60%;
     --accent-foreground: 0 0% 100%;
 
     --success: 160 84% 39%;
@@ -72,24 +79,73 @@
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 40 12% 86%;
-    --input: 40 12% 86%;
-    --ring: 217 91% 55%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%;
 
-    --radius: 0.375rem;
+    --radius: 0.75rem;
 
-    /* Sección oscura (industrias / footer) */
-    --dark: 220 15% 9%;
-    --dark-foreground: 40 25% 97%;
+    --sidebar-background: 210 40% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 217 91% 60%;
+  }
 
-    --sidebar-background: 40 25% 97%;
-    --sidebar-foreground: 220 15% 10%;
-    --sidebar-primary: 220 15% 10%;
-    --sidebar-primary-foreground: 40 25% 97%;
-    --sidebar-accent: 40 15% 92%;
-    --sidebar-accent-foreground: 220 15% 10%;
-    --sidebar-border: 40 12% 86%;
-    --sidebar-ring: 217 91% 55%;
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --surface-primary: 217 33% 14%;
+    --surface-accent: 218 46% 16%;
+    --surface-success: 160 34% 14%;
+    --surface-neutral: 217 30% 13%;
+    --surface-frame: 217 33% 11%;
+    --surface-core: 217 33% 14%;
+    --surface-complement: 217 30% 18%;
+    --surface-bridge: 217 30% 16%;
+    --surface-cta: 217 30% 15%;
+    --surface-cta-card: 217 36% 19%;
+
+    --card: 222 47% 9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 6%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 217 91% 60%;
+
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 217 33% 17%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -106,9 +162,53 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
+}
 
-  html {
-    scroll-behavior: smooth;
+@layer utilities {
+  .bg-surface-primary {
+    background-color: hsl(var(--surface-primary));
+  }
+
+  .bg-surface-accent {
+    background-color: hsl(var(--surface-accent));
+  }
+
+  .bg-surface-success {
+    background-color: hsl(var(--surface-success));
+  }
+
+  .bg-surface-neutral {
+    background-color: hsl(var(--surface-neutral));
+  }
+
+  .bg-surface-frame {
+    background-color: hsl(var(--surface-frame));
+  }
+
+  .bg-surface-core {
+    background-color: hsl(var(--surface-core));
+  }
+
+  .bg-surface-complement {
+    background-color: hsl(var(--surface-complement));
+  }
+
+  .bg-surface-bridge {
+    background-color: hsl(var(--surface-bridge));
+  }
+
+  .bg-surface-cta {
+    background-color: hsl(var(--surface-cta));
+  }
+
+  .bg-surface-cta-card {
+    background-color: hsl(var(--surface-cta-card));
+  }
+
+  .section-chromatic-wash {
+    background-image:
+      radial-gradient(circle at 12% 0%, hsl(var(--accent) / 0.10), transparent 45%),
+      radial-gradient(circle at 88% 100%, hsl(var(--success) / 0.08), transparent 50%);
   }
 }
 

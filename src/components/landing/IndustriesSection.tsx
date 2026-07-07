@@ -1,55 +1,100 @@
-import { FadeIn } from "@/lib/motion";
+import { Home, Stethoscope, Briefcase } from "lucide-react";
+import { motion } from "framer-motion";
+import { StaggerContainer, StaggerItem, FadeIn } from "@/lib/motion";
+import { cn } from "@/lib/utils";
+import { AnimatedFeatureCard, type AnimatedFeatureCardTone } from "@/components/ui/animated-feature-card";
 
-const INDUSTRIES = [
+interface IndustryCard {
+  icon: React.ReactNode;
+  title: string;
+  problem: string;
+  solution: string;
+  tone: AnimatedFeatureCardTone;
+}
+
+const INDUSTRIES: IndustryCard[] = [
   {
-    name: "Restaurantes y gastronomía",
-    detail: "Contenido que abre el apetito, campañas locales y menús digitales.",
+    icon: <Home className={cn('w-6', 'h-6')} />,
+    title: "Inmobiliarias & Bienes Raíces",
+    problem: "¿Cansado de mostrar propiedades a curiosos que no compran?",
+    solution:
+      "Captamos prospectos, nuestro asistente virtual pre-califica su presupuesto y solo te agenda visitas con compradores reales.",
+    tone: "primary",
   },
   {
-    name: "Moda y retail",
-    detail: "Redes que construyen marca, catálogos web y campañas de temporada.",
+    icon: <Stethoscope className={cn('w-6', 'h-6')} />,
+    title: "Clínicas & Estéticas",
+    problem: "¿Pacientes que agendan pero no asisten a la cita?",
+    solution:
+      "Llenamos tu agenda con campañas locales y el sistema envía recordatorios automáticos por WhatsApp para asegurar su asistencia.",
+    tone: "accent",
   },
   {
-    name: "Marcas y e-commerce",
-    detail: "Posicionamiento en Meta, generación de leads y sitios que convierten.",
-  },
-  {
-    name: "Salud y bienestar",
-    detail: "Captación de pacientes y presencia digital profesional.",
-  },
-  {
-    name: "Servicios profesionales",
-    detail: "Leads calificados y páginas web que generan confianza.",
+    icon: <Briefcase className={cn('w-6', 'h-6')} />,
+    title: "Agencias & Aseguradoras",
+    problem: "¿Leads caros que no contestan el teléfono?",
+    solution:
+      "Conectamos tus anuncios directo a un CRM donde el prospecto es contactado en menos de 5 minutos, aumentando tu tasa de cierre.",
+    tone: "success",
   },
 ];
 
 const IndustriesSection = () => (
-  <section id="industrias" className="scroll-mt-24 bg-dark py-24 md:py-36">
-    <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-      <FadeIn>
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-dark-foreground/50">
-          Industrias
-        </p>
-        <h2 className="mt-4 max-w-[22ch] text-[clamp(2rem,4.5vw,3.5rem)] font-bold leading-[1.08] tracking-tight text-dark-foreground">
-          Trabajamos con negocios que viven de sus clientes.
+  <section id="usos" className={cn('relative', 'py-24', 'md:py-32', 'bg-surface-bridge')}>
+    <div aria-hidden className={cn('pointer-events-none', 'absolute', 'inset-x-0', 'top-0', 'h-24', 'bg-gradient-to-b', 'from-accent/8', 'to-transparent')} />
+    <div className={cn('max-w-7xl', 'mx-auto', 'px-6', 'lg:px-16')}>
+      <FadeIn className={cn('text-center', 'max-w-2xl', 'mx-auto', 'mb-16')}>
+        <h2 className={cn('font-heading', 'text-3xl', 'sm:text-4xl', 'font-bold', 'text-foreground')}>
+          Soluciones comprobadas que se adaptan a tu modelo de negocio
         </h2>
       </FadeIn>
 
-      <div className="mt-16 md:mt-24">
-        {INDUSTRIES.map((industry) => (
-          <FadeIn key={industry.name}>
-            <div className="grid gap-2 border-t border-dark-foreground/15 py-7 md:grid-cols-[1fr_1.4fr] md:gap-10 md:py-9">
-              <h3 className="text-base font-semibold text-dark-foreground md:text-lg">
-                {industry.name}
-              </h3>
-              <p className="text-sm leading-relaxed text-dark-foreground/50 md:text-base">
-                {industry.detail}
-              </p>
-            </div>
-          </FadeIn>
+      <StaggerContainer className={cn('grid', 'md:grid-cols-3', 'gap-6', 'lg:gap-8')} staggerDelay={0.15}>
+        {INDUSTRIES.map((ind) => (
+          <StaggerItem key={ind.title}>
+            <AnimatedFeatureCard
+              cardHoverOffset={0}
+              tone={ind.tone}
+              visualVariant="hidden"
+              contentHoverOffset={0}
+              className="min-h-[336px]"
+              contentClassName="border-0 bg-transparent p-0 shadow-none backdrop-blur-0"
+              heading={
+                <span className={cn('flex', 'items-center', 'gap-3')}>
+                  <span className={cn('flex', 'h-11', 'w-11', 'shrink-0', 'items-center', 'justify-center', 'rounded-2xl', 'bg-foreground/[0.04]', 'text-[var(--feature-chip-text)]', 'shadow-sm')}>
+                    {ind.icon}
+                  </span>
+                  <span>{ind.title}</span>
+                </span>
+              }
+              description={
+                <div>
+                  <p className={cn('mb-1', 'text-[0.68rem]', 'font-semibold', 'uppercase', 'tracking-[0.22em]', 'text-destructive')}>
+                    El problema
+                  </p>
+                  <p className={cn('text-sm', 'leading-relaxed', 'text-muted-foreground')}>
+                    {ind.problem}
+                  </p>
+                </div>
+              }
+              details={
+                <motion.div
+                  variants={{
+                    rest: { y: 0, scale: 1, opacity: 0.96 },
+                    hover: { y: 10, scale: 1, opacity: 1 },
+                  }}
+                  className={cn('rounded-[24px]', 'border', 'p-4', 'text-left', 'shadow-[0_18px_36px_hsl(var(--foreground)/0.1)]', '[border-color:var(--feature-stage-border)]', '[background:var(--feature-chip-bg)]', '[color:var(--feature-chip-text)]')}
+                >
+                  <p className={cn('mb-2', 'text-[0.66rem]', 'font-semibold', 'uppercase', 'tracking-[0.22em]', 'opacity-70')}>
+                    Nuestra solución
+                  </p>
+                  <p className={cn('text-sm', 'font-medium', 'leading-relaxed')}>{ind.solution}</p>
+                </motion.div>
+              }
+            />
+          </StaggerItem>
         ))}
-        <div className="border-t border-dark-foreground/15" />
-      </div>
+      </StaggerContainer>
     </div>
   </section>
 );
